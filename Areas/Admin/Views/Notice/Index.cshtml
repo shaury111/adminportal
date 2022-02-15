@@ -1,0 +1,164 @@
+﻿@model IEnumerable<SiteAllAdmin.Models.tblnotification>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="breadcrumbs-area">
+    <h3>News</h3>
+    <ul>
+        <li>
+            <a href="/admin/dashboard">Home</a>
+        </li>
+        <li>News</li>
+    </ul>
+</div>
+
+
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1 mg-b-15">
+            <div class="item-title">
+                <h3>News Section</h3>
+            </div>
+            </div>
+    
+
+        <p>
+            @*@Html.ActionLink("Create New", "Create")*@
+
+            <input type="button" onclick="addnewmodel(0)" value="Add New" />
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserDetail.fldName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NoticeTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NoticeDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NoticeDate)
+                </th>
+               
+               
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+
+                        @if (item.UserDetail.fldimage != null)
+                        {
+                            <img src="@Url.Content("/Uploadcpic/"+item.UserDetail.fldimage)" width="30" />
+                        }
+                        else
+                        {
+                            <img src="/img/figure/2.jpg" style="width:30px" alt="@item.UserDetail.fldName">
+                        }
+
+                        @Html.DisplayFor(modelItem => item.UserDetail.fldName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoticeTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoticeDescription)
+                    </td>
+                    <td>
+                        @Convert.ToDateTime(item.NoticeDate).ToString("dd-MM-yyyy")
+
+                        @*@Html.DisplayFor(modelItem => item.NoticeDate)*@
+                    </td>
+                    
+                    
+                    <td>
+                        <input type="button" value="Edit" onclick="addnewmodel(@item.id)" />
+
+                        @*@Html.ActionLink("Edit", "Edit", new { id=item.id }) |*@
+                       
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div></div>
+
+      
+
+            <div class="modal sign-up-modal fade" id="sign-up" tabindex="-1" role="dialog"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="close-btn">
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div id="noticecontent"></div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+
+            </script>
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+
+                <script>
+
+
+                    function addnewmodel(param)
+                    {
+
+                        if (param === 0)
+                        {
+                            var url = "/admin/Notice/create";
+                        }
+                        else {
+
+                            var url = "/admin/Notice/Edit/"+param;
+                        }
+
+
+                        jQuery.ajax({
+                            url: url,
+                            type: "get",
+                            // data: { id: 0 },
+                            contenttype: 'application/json; charset=utf-8',
+                            async: true,
+                            dataType: 'html',
+                            beforeSend: function () {
+                                $("#preloader").show();
+                            }
+                            ,
+                            success: function (data)
+                            {
+                                $('#sign-up').modal('show');
+
+                                $("#noticecontent").html(data);
+
+                            }
+
+                        });
+
+
+                    }
+
+                </script>
+            }

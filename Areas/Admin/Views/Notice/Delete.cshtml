@@ -1,0 +1,104 @@
+﻿@model SiteAllAdmin.Models.tblnotification
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tblnotification</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NoticeTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoticeTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoticeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoticeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoticeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoticeDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.attachment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.attachment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldextra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldextra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldextra1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldextra1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldextra2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldextra2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldextra3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldextra3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserDetail.fldName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDetail.fldName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

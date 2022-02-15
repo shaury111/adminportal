@@ -1,0 +1,151 @@
+﻿@model IEnumerable<SiteAllAdmin.Models.UserDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="breadcrumbs-area">
+    <h3>Customers</h3>
+    <ul>
+        <li>
+            <a href="/admin/dashboard">Home</a>
+        </li>
+        <li>All Cuatomers</li>
+    </ul>
+</div>
+
+
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3>All Customer Data
+                <small>
+    @Html.ActionLink("Create New", "Create")
+</small>
+                </h3>
+            </div>
+            
+        </div>
+        
+        <div class="table-responsive">
+            <div>
+
+
+                <table class="table" id="customerdata">
+                    <thead>
+                        <tr>
+                            <th>
+                               Image
+                            </th>
+                            <th>Login ID</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.fldName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.fldMobile)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.fldemail)
+                            </th>                          
+                            <th>
+                                @Html.DisplayNameFor(model => model.fldshopcode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.fldstoreaddress)
+                            </th>                           
+                            <th>
+                                @Html.DisplayNameFor(model => model.fldcreateddate)
+                            </th>                            
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+
+                    @foreach (var item in Model)
+                    {
+                        <tr class="@(item.fldstatus==true?"":"text-danger")" data-toggle="tooltip" data-placement="top" title="@(item.fldstatus==true?"":"Need To Activate This user by edit Status Field")">
+                            <td>
+                               
+
+                                @if (item.fldimage != null)
+                                {
+                                    <img src="@Url.Content("/Uploadcpic/"+item.fldimage+"?w=100&h=100&mode=stretch")" />
+                                }
+                                else{ 
+                                <img src="/img/figure/2.jpg??w=160&h=100" style="width:30px" alt="@item.fldName">
+                                }
+                               
+                            </td>
+
+                            <td>
+                                @item.fldpassword
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fldName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fldMobile)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fldemail)
+                            </td>                            
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fldshopcode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fldstoreaddress)
+                            </td>                           
+                            <td>
+                               @Convert.ToDateTime(item.fldcreateddate).ToString("dd-mm-yyyy")
+                            </td>
+                            
+                            
+                            <td>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(-92px, 51px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                        <a class="dropdown-item" href="/Admin/AddNew/Edit/@item.id"><i class="fas fa-times text-orange-red"></i>Edit</a>
+    <a class="dropdown-item" href="/Admin/AddNew/Details/@item.id"><i class="fas fa-cogs text-dark-pastel-green"></i>Details</a>
+    <a class="dropdown-item" href="/Admin/AddNew/Delete/@item.id"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+
+                                        @*@Html.ActionLink("Edit", "Edit", new { id = item.id }, new { htmlAttributes = new { @class = "dropdown-item" } }) 
+                                        @Html.ActionLink("Details", "Details", new { id = item.id }, new { htmlAttributes = new { @class = "dropdown-item" } })
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { htmlAttributes = new { @class = "dropdown-item" } })*@
+                                    </div>
+                                </div>
+
+
+
+                               
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        $(document).ready(function () {
+            
+            $("#customerdata").DataTable();
+
+        });
+
+
+
+    </script>
+}
+

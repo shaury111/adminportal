@@ -1,0 +1,206 @@
+﻿@model new_loginsystem.Models.tbl_customercomplaint
+
+@{
+    ViewBag.Title = "HelpDesk";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+    <style>
+        .dashboard-card-seven .social-media .social-like {
+            font-size: 17px !important;
+            color: #ffffff;
+        }
+    </style>
+}
+<div class="breadcrumbs-area">
+    @*<h3>Welcome To Real me Partner</h3>*@
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>Help Desk</li>
+    </ul>
+</div>
+
+<div class="row gutters-20">
+    <div class="col-lg-3 col-sm-6 col-12">
+        <div class="card dashboard-card-seven">
+            <div class="social-media bg-fb hover-fb">
+                <div class="media media-none--lg">
+
+                    <div class="media-body space-sm">
+                        <h6 class="item-title">Email Support</h6>
+                    </div>
+                </div>
+                <div class="social-like">@System.Configuration.ConfigurationManager.AppSettings["EmailSupport"]</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-12">
+        <div class="card dashboard-card-seven">
+            <div class="social-media bg-twitter hover-twitter">
+                <div class="media media-none--lg">
+
+                    <div class="media-body space-sm">
+                        <h6 class="item-title">Technical Support</h6>
+                    </div>
+                </div>
+                <div class="social-like">@System.Configuration.ConfigurationManager.AppSettings["TechnicalSupport"]</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-12">
+        <div class="card dashboard-card-seven">
+            <div class="social-media bg-gplus hover-gplus">
+                <div class="media media-none--lg">
+
+                    <div class="media-body space-sm">
+                        <h6 class="item-title">Phone Support</h6>
+                    </div>
+                </div>
+                <div class="social-like">@System.Configuration.ConfigurationManager.AppSettings["PhoneSupport"]</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-12">
+        <div class="card dashboard-card-seven">
+            <div class="social-media bg-linkedin hover-linked">
+                <div class="media media-none--lg">
+
+                    <div class="media-body space-sm">
+                        <h6 class="item-title">Other Support</h6>
+                    </div>
+                </div>
+                <div class="social-like">@System.Configuration.ConfigurationManager.AppSettings["OtherSupport"]</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Add Notice Area Start Here -->
+    <div class="col-xl-8">
+        <div class="card">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title">
+                        <h3>Write New Message</h3>
+                    </div>
+
+                </div>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                       
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.cid, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.cid, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.cid, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                        @Html.HiddenFor(x => x.cid);
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.comp_title, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.comp_title, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.comp_title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.comp_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.comp_desc, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.comp_desc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.comp_date, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.comp_date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.comp_date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.fldextra, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.fldextra, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.fldextra, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.fldextra1, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.fldextra1, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.fldextra1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.fldextra2, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.fldextra2, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.fldextra2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.fldextra3, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.fldextra3, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.fldextra3, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Send</button>
+                                @ViewBag.msgstatus
+                                @*<input type="submit" value="Create" class="btn btn-default" />*@
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                @*<form class="new-added-form" action="" method="post">
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            <label>Title</label>
+                            <input type="text" placeholder="" name="title" class="form-control">
+                        </div>
+
+                        <div class="col-12 form-group">
+                            <label>Message</label>
+                            <textarea class="textarea form-control" name="message" id="form-message" cols="10" rows="9"></textarea>
+                        </div>
+                        <div class="col-12 form-group mg-t-8">
+                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Send</button>
+                            <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                        </div>
+                    </div>
+                </form>*@
+            </div>
+        </div>
+    </div>
+    <!-- Add Notice Area End Here -->
+    <!-- All Notice Area Start Here -->
+    <!-- All Notice Area End Here -->
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

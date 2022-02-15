@@ -1,0 +1,184 @@
+﻿@model SiteAllAdmin.Models.UserDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>UserDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fldName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldMobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldMobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldemail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldemail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldsreet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldsreet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldcity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldcity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldpincode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldpincode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstorename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstorename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstoreemail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstoreemail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstorecontactno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstorecontactno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldshopcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldshopcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstoreaddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstoreaddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstorestate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstorestate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstorecity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstorecity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstorepincode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstorepincode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldpassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldpassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldcreateddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldcreateddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldimage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldimage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblrole.fldrole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblrole.fldrole)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

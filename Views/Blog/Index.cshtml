@@ -1,0 +1,102 @@
+﻿@model IEnumerable<SiteAllAdmin.Models.Blog>
+
+@{
+   
+    Layout = "~/Views/Shared/_Layoutweb.cshtml";
+}
+
+<div class="pa-breadcrumb">
+    <div class="container-fluid">
+        <div class="pa-breadcrumb-box">
+            <h1>blog</h1>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li>blog</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+<div class="pa-blog-page spacer-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row">
+
+                    @foreach (var item in Model)
+                    {
+
+                        string s1 = System.Text.RegularExpressions.Regex.Replace(item.blogtitle,"[^A-za-z0-9_]","");
+                        string url = "/Blog/Details/" + s1.Replace(",","-")+"_"+item.id;
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="pa-blog-box">
+                                <img src="@Url.Content("/BlogImage/"+@item.blogimage+"?w=348&h=248&mode=stretch")" alt="image" class="img-fluid">
+                                <div class="pa-blog-title">
+                                    <a href="@url" class="pa-blog-category">@item.tblcategory.fldcategoryname</a>
+                                    <h2><a href="@url">@item.blogtitle</a></h2>
+                                    <a href="#" class="pa-blog-date">@item.blogentrydate</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="pa-blog-sidebar">
+                    <div class="pa-widget pa-search">
+                        <input type="text" placeholder="Search here">
+                        <button class="pa-btn">Search</button>
+                    </div>
+                    <div class="pa-widget pa-shop-category">
+                        <h2 class="pa-sidebar-title">Categories</h2>
+                        <ul>
+                            <li><a href="javascript:;">Top products <span>4</span></a></li>
+                            <li><a href="javascript:;">Latest products <span>5</span></a></li>
+                            <li><a href="javascript:;">New trending <span>6</span></a></li>
+                            <li><a href="javascript:;">New arrivals <span>2</span></a></li>
+                            <li><a href="javascript:;">Recently added <span>9</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="pa-widget pa-product-widget">
+                        <h2 class="pa-sidebar-title">Top poducts</h2>
+                        <ul>
+                            <li>
+                                <div class="pa-pro-wid-img">
+                                    <img src="assets/images/product-wid1.png" alt="image" class="img-fluid">
+                                </div>
+                                <div class="pa-pro-wid-content">
+                                    <h4><a href="javascript:;">Black Organic Tea</a></h4>
+                                    <p>Ut enim ad minim veniam, quis nostrud exerci</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="pa-pro-wid-img">
+                                    <img src="assets/images/product-wid2.png" alt="image" class="img-fluid">
+                                </div>
+                                <div class="pa-pro-wid-content">
+                                    <h4><a href="javascript:;">Loose Leaf Tea</a></h4>
+                                    <p>Ut enim ad minim veniam quis nostrud exerci</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="pa-pro-wid-img">
+                                    <img src="assets/images/product-wid3.png" alt="image" class="img-fluid">
+                                </div>
+                                <div class="pa-pro-wid-content">
+                                    <h4><a href="javascript:;">Green Tea</a></h4>
+                                    <p>Ut enim ad minim veniam quis nostrud exerci</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,206 @@
+﻿@model IEnumerable<SiteAllAdmin.Models.Blog>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="breadcrumbs-area">
+    <h3>Blogs</h3>
+    <ul>
+        <li>
+            <a href="/admin/dashboard">Home</a>
+        </li>
+        <li>All Blogs</li>
+    </ul>
+</div>
+
+
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3>
+                    All Blogs
+                    <small>
+                        @Html.ActionLink("Create New", "Create")
+                    </small>
+                </h3>
+            </div>
+
+        </div>
+
+        <div class="table-responsive">
+            <div>
+
+
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Title
+                        </th>
+                       
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Category Name
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @if (item.blogimage != null)
+                                {
+                                    <img onclick="showimageomdel(@item.id)"  src="@Url.Content("/BlogImage/"+item.blogimage+"?w=100&h=100&mode=stretch")" />
+                                }
+                                else
+                                {
+                                    <img onclick="showimageomdel(@item.id)" src="/img/figure/2.jpg??w=160&h=100" style="width:30px" alt="@item.blogtitle">
+                                }
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.blogtitle)
+                            </td>
+                           
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.blogentrydate)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tblcategory.fldcategoryname)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Add /edit image</h4>
+            </div>
+            <div class="modal-body">
+
+                <img id="jobimage" height="200" width="300" />
+
+
+                <input type="file" id="FileUpload1" />
+                @*<input type="button"  value="" />*@
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" id="btnUpload" class="btn btn-primary">Upload Files</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@section Scripts {
+
+<script>
+    var jobid;
+    var Imageid;
+    $(document).ready(function () {
+
+        $('#btnUpload').click(function () {
+
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#FileUpload1").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                //alert(jobid)
+
+                // Adding one more key to FormData object
+                fileData.append('jobid', jobid);
+                fileData.append('imageid', Imageid);
+
+
+
+                $.ajax({
+                    url: '/admin/Imgc/UploadBlog',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    beforeSend: function () {
+                        $("#jobimage").attr("src", "/Uploads/loading.gif");
+                    },
+                    success: function (result) {
+                        alert(result);
+                        location.reload(true);
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            }
+            else {
+                alert("FormData is not supported.");
+            }
+        });
+
+    });
+    function showimageomdel(jid)
+    {
+        //$("#modal-default").modal('show');
+
+        $('#modal-default').modal('show');
+        jobid = jid;
+        $.ajax({
+            url: '/admin/Imgc/fetchblogimg',
+            type: "get",
+            data: { id: jid },
+            contenttype: 'application/json; charset=utf-8',
+            async: true,
+            dataType: 'json',
+            beforeSend: function () {
+                $("#jobimage").attr("src", "/Uploads/loading.gif");
+            },
+            success: function (result) 
+            {
+                console.log(result);
+                Imageid = result.id;
+                $("#jobimage").attr("src", result.src);
+            },
+            error: function (err) {
+                alert(err.statusText);
+            }
+        });
+
+    }
+</script>
+}

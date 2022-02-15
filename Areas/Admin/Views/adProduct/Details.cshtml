@@ -1,0 +1,91 @@
+﻿@model SiteAllAdmin.Models.tblproduct
+
+@{
+    ViewBag.Title = "Details";
+    
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblproduct</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fldprodtitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldprodtitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldprodsubtitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldprodsubtitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.flddescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flddescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.entrydate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.entrydate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldseotitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldseotitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldseokeyword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldseokeyword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldextra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldextra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldextra1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldextra1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productimage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productimage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

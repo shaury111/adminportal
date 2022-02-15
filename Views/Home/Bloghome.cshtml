@@ -1,0 +1,21 @@
+﻿@model IEnumerable<SiteAllAdmin.Models.Blog>
+    @{ 
+        Layout = "~/Views/Shared/_Layoutweb.cshtml";
+    }
+
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-4 col-md-6">
+        <div class="pa-blog-box">
+            <img src="@Url.Content("/BlogImage/"+item+"w=348&h=248&mode=stretch")" alt="image" class="img-fluid">
+            <div class="pa-blog-title">
+                <a href="#" class="pa-blog-category">@item.tblcategory.fldcategoryname</a>
+                <h2><a href="blog-single.html">@item.blogtitle</a></h2>
+                <a href="#" class="pa-blog-date">@item.blogentrydate</a>
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,413 @@
+﻿@model SiteAllAdmin.Models.UserDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="breadcrumbs-area">
+    
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>Customer Details</li>
+    </ul>
+</div>
+
+<div class="row">
+    <!-- Student Info Area Start Here -->
+    <div class="col-5-xxxl col-12">
+        <div class="card dashboard-card-ten">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title">
+                        @*<h3>About Me</h3>*@
+                    </div>
+                    @*<div class="dropdown">
+                            <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
+
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>Close</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                            </div>
+                        </div>*@
+                </div>
+                <div class="student-info">
+                    <div class="media media-none--xs">
+                        <div class="item-img">
+                            @if (Model.fldimage != null)
+                            {
+                                <img src="@Url.Content("/Uploadcpic/"+Model.fldimage)" class="media-img-auto" alt="@Model.fldName" />
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("/img/figure/2.jpg")" class="media-img-auto" alt="@Model.fldName">
+                            }
+
+
+                        </div>
+                        <div class="media-body">
+                            <h3 class="item-title">@Model.fldName</h3>
+                            <p>
+                                <b>Registration date: @Model.fldcreateddate </b>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="table-responsive info-table">
+                        <table class="table text-nowrap">
+                            <tbody>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldName</td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile number:</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldMobile</td>
+                                </tr>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldemail</td>
+                                </tr>
+                                <tr>
+                                    <td>Street:</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldsreet</td>
+                                </tr>
+                                <tr>
+                                    <td>City:</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldcity</td>
+                                </tr>
+                                <tr>
+                                    <td>Pincode:</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldpincode</td>
+                                </tr>
+                                <tr>
+                                    <td>Store Name</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldstorename</td>
+                                </tr>
+                                <tr>
+                                    <td>Store E-Mail:</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldstoreemail</td>
+                                </tr>
+                                <tr>
+                                    <td>Store Phone:</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldstorecontactno</td>
+                                </tr>
+                                <tr>
+                                    <td>Shop Code:</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldshopcode</td>
+                                </tr>
+                                <tr>
+                                    <td>Shop Address:</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldstoreaddress</td>
+                                </tr>
+                                <tr>
+                                    <td>State:</td>
+                                    <td class="font-medium text-dark-medium">@Model.fldstorestate</td>
+                                </tr>
+                                <tr>
+                                    <td>City:</td>
+                                    <td class="font-medium text-dark-medium">
+                                        @Model.fldstorecity-(@Model.fldstorepincode.)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Login Pin:</td>
+                                    <td class="font-medium text-dark-medium">
+                                        @Model.fldpassword
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Status:</td>
+                                    <td class="font-medium text-dark-medium">
+                                        @(Model.fldstatus == true ? "Active" : "Deactive")
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Student Info Area End Here -->
+
+    <div class="col-7-xxxl col-12">
+        <div class="row">
+            <!-- Summery Area Start Here -->
+            <div class="col-lg-4">
+                <div class="dashboard-summery-one">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="item-icon bg-light-magenta">
+                                <i class="flaticon-shopping-list text-magenta"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="item-content">
+                                <div class="item-title">Notification</div>
+                                <div class="item-number"><span class="counter" data-num="@ViewBag.totalnotice">@ViewBag.totalnotice</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="dashboard-summery-one">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="item-icon bg-light-blue">
+                                <i class="flaticon-calendar text-blue"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="item-content">
+                                <div class="item-title">Events</div>
+                                <div class="item-number"><span class="counter" data-num="06">6</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="dashboard-summery-one">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="item-icon bg-light-yellow">
+                                <i class="flaticon-percentage-discount text-orange"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="item-content">
+                                <div class="item-title">Attendance</div>
+                                <div class="item-number"><span class="counter" data-num="94">94</span><span>%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Summery Area End Here -->
+            <!-- Exam Result Area Start Here -->
+            <div class="col-lg-12">
+                <div class="card dashboard-card-six pd-b-20">
+
+                    <div class="card-body">
+                        <div class="heading-layout1 mg-b-17">
+                            <div class="item-title">
+                                <h3>Notice Board</h3>
+                            </div>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
+
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>Close</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notice-box-wrap">
+@foreach (var item in @ViewBag.Noticelist)
+{
+    <div class="notice-list">
+        <div class="post-date bg-skyblue">@Convert.ToDateTime(item.NoticeDate).ToString("dd-MM-yyyy")</div>
+        <h6 class="notice-title">
+            <a href="#">
+               @item.NoticeTitle
+            </a>
+        </h6>
+        <div class="entry-meta"> @item.NoticeDescription</div>
+    </div>
+}
+                            
+                           
+                        </div>
+                    </div>
+
+
+                    
+                </div>
+            </div>
+            <!-- Exam Result Area End Here -->
+        </div>
+    </div>
+   
+    
+</div>
+@*<h2>Details</h2>
+
+<div>
+    <h4>UserDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fldName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldMobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldMobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldemail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldemail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldsreet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldsreet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldcity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldcity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldpincode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldpincode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstorename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstorename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstoreemail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstoreemail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstorecontactno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstorecontactno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldshopcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldshopcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstoreaddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstoreaddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstorestate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstorestate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstorecity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstorecity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstorepincode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstorepincode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldpassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldpassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldcreateddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldcreateddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldimage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldimage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblrole.fldrole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblrole.fldrole)
+        </dd>
+
+    </dl>
+</div>*@
+

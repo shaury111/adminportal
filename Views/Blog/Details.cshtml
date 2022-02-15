@@ -1,0 +1,170 @@
+﻿@model SiteAllAdmin.Models.Blog
+@using new_loginsystem.Models
+
+@{
+  
+    Layout = "~/Views/Shared/_Layoutweb.cshtml";
+}
+
+<div class="pa-breadcrumb">
+    <div class="container-fluid">
+        <div class="pa-breadcrumb-box">
+            <h1>blog</h1>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li>blog</li>
+                <li>@Model.blogtitle </ li >
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="pa-blog-single spacer-top spacer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="pa-blog-box">
+                    <img src="@Url.Content("/BlogImage/"+Model.blogimage+"?w=348&h=248&mode=stretch")" alt="@Model.blogtitle" class="img-fluid">
+                    <div class="pa-blog-title">
+                        <a href="#" class="pa-blog-category">@Model.tblcategory.fldcategoryname</a>
+                        <h2>@Model.blogtitle</h2>
+                        <a href="#" class="pa-blog-date">@Model.blogentrydate</a>
+                        @Html.Raw(Model.blogDesc)
+                    </div>
+                    
+                </div>
+                @*<div class="pa-bs-content">
+                  
+                </div>*@
+                <div class="pa-blog-comnt">
+                    <h2 class="pa-cmnt-title">Leave a reply</h2>
+                    @*<ul>
+                        <li>
+                            <div class="pa-cmnt-box">
+                                <div class="pa-cmnt-img">
+                                    <img src="assets/images/user.jpg" alt="image" class="img-fluid" />
+                                </div>
+                                <div class="pa-cmnt-content">
+                                    <h3>Jonson Brock</h3>
+                                    <p><span class="pa-cmnt-date">1 May, 2020</span><span class="pa-cmnt-time">06:35:44</span></p>
+                                    <p>Aenean sit amet odio nisi.Vestibulum vel dolor et justo sollicitudin tincidunt. Mauris eleifend elit metus.</p>
+                                </div>
+                            </div>
+                            <ul>
+                                <li>
+                                    <div class="pa-cmnt-box">
+                                        <div class="pa-cmnt-img">
+                                            <img src="assets/images/user.jpg" alt="image" class="img-fluid" />
+                                        </div>
+                                        <div class="pa-cmnt-content">
+                                            <h3>Jonson Brock</h3>
+                                            <p><span class="pa-cmnt-date">1 May, 2020</span><span class="pa-cmnt-time">06:35:44</span></p>
+                                            <p>Aenean sit amet odio nisi.Vestibulum vel dolor et justo sollicitudin tincidunt. Mauris eleifend elit metus.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="pa-cmnt-box">
+                                <div class="pa-cmnt-img">
+                                    <img src="assets/images/user.jpg" alt="image" class="img-fluid" />
+                                </div>
+                                <div class="pa-cmnt-content">
+                                    <h3>Jonson Brock</h3>
+                                    <p><span class="pa-cmnt-date">1 May, 2020</span><span class="pa-cmnt-time">06:35:44</span></p>
+                                    <p>Aenean sit amet odio nisi.Vestibulum vel dolor et justo sollicitudin tincidunt. Mauris eleifend elit metus.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>*@
+                    <div class="pa-cmnt-form">
+                        @Html.Partial("_enquiry", new UserEnquiryModel
+                   {   refid =Model.id,
+                       fldextra="Blog"
+                   })
+                        @*<form>
+                            <input type="text" placeholder="Enter your name">
+                            <input type="text" placeholder="Enter your email">
+                            <textarea placeholder="Message here"></textarea>
+                            <button class="pa-btn" type="submit">submit</button>
+                        </form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="pa-blog-sidebar">
+                    <div class="pa-widget pa-search">
+                        <input type="text" placeholder="Search here">
+                        <button class="pa-btn">Search</button>
+                    </div>
+                    <div class="pa-widget pa-shop-category">
+                        <h2 class="pa-sidebar-title">blog Categories</h2>
+                        <ul>
+                            <li><a href="javascript:;">Top products <span>4</span></a></li>
+                            <li><a href="javascript:;">Latest products <span>5</span></a></li>
+                            <li><a href="javascript:;">New trending <span>6</span></a></li>
+                            <li><a href="javascript:;">New arrivals <span>2</span></a></li>
+                            <li><a href="javascript:;">Recently added <span>9</span></a></li>
+                        </ul>
+                    </div>
+                    @*<div class="pa-widget pa-product-widget">
+                        <h2 class="pa-sidebar-title">Recent Posts</h2>
+                        <ul>
+                            <li>
+                                <div class="pa-pro-wid-img">
+                                    <img src="assets/images/product-wid1.png" alt="image" class="img-fluid">
+                                </div>
+                                <div class="pa-pro-wid-content">
+                                    <h4><a href="javascript:;">Black Organic Tea</a></h4>
+                                    <p>Ut enim ad minim veniam, quis nostrud exerci</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="pa-pro-wid-img">
+                                    <img src="assets/images/product-wid2.png" alt="image" class="img-fluid">
+                                </div>
+                                <div class="pa-pro-wid-content">
+                                    <h4><a href="javascript:;">Loose Leaf Tea</a></h4>
+                                    <p>Ut enim ad minim veniam quis nostrud exerci</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="pa-pro-wid-img">
+                                    <img src="assets/images/product-wid3.png" alt="image" class="img-fluid">
+                                </div>
+                                <div class="pa-pro-wid-content">
+                                    <h4><a href="javascript:;">Green Tea</a></h4>
+                                    <p>Ut enim ad minim veniam quis nostrud exerci</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>*@
+                    @*<div class="pa-widget pa-tag">
+                        <h2 class="pa-sidebar-title">Tag clouds</h2>
+                        <ul>
+                            <li><a href="javascript:;">product</a></li>
+                            <li><a href="javascript:;">Ayurveda</a></li>
+                            <li><a href="javascript:;">pure</a></li>
+                            <li><a href="javascript:;">trending</a></li>
+                            <li><a href="javascript:;">herbal</a></li>
+                            <li><a href="javascript:;">healthy</a></li>
+                            <li><a href="javascript:;">product</a></li>
+                            <li><a href="javascript:;">Ayurveda</a></li>
+                            <li><a href="javascript:;">trending</a></li>
+                            <li><a href="javascript:;">pure</a></li>
+                            <li><a href="javascript:;">herbal</a></li>
+                            <li><a href="javascript:;">healthy</a></li>
+                        </ul>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

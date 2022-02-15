@@ -1,0 +1,109 @@
+﻿@model IEnumerable<SiteAllAdmin.Models.tblcategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="breadcrumbs-area">
+    <h3>Blog Category</h3>
+    <ul>
+        <li>
+            <a href="/admin/dashboard">Home</a>
+        </li>
+        <li>Blog Category</li>
+    </ul>
+</div>
+
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3>
+                    Blog Page included (About and Contact us)
+                    <small>
+                        @Html.ActionLink("Create New", "Create")
+                    </small>
+                </h3>
+            </div>
+
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fldcategoryname)
+                    </th>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.fldcategorytitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fldcategorykeyword)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.flddescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IsShow)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fldextra)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fldextra1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fldextra2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fldextra3)
+                    </th>*@
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.fldstatus)
+                    </th>*@
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fldcategoryname)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.fldcategorytitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fldcategorykeyword)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.flddescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsShow)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fldextra)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fldextra1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fldextra2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fldextra3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fldstatus)
+                        </td>*@
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id=item.fldcatid }) |
+                            @Html.ActionLink("Details", "Details", new { id=item.fldcatid }) |
+                            @Html.ActionLink("Delete", "Delete", new { id=item.fldcatid })
+                        </td>
+                    </tr>
+}
+
+            </table>
+        </div>
+</div>
+</div>

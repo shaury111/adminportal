@@ -1,0 +1,43 @@
+﻿@model SiteAllAdmin.Models.Addextrafeature
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Addextrafeature</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.columnname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.columnname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.columnvalue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.columnvalue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserDetail.fldName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDetail.fldName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

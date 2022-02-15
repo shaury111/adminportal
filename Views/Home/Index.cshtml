@@ -1,0 +1,151 @@
+﻿
+@{
+   
+    Layout = "~/Views/Shared/_Layoutweb.cshtml";
+}
+
+
+
+@{
+
+    <div class="pa-banner" style="background-image:url('@Url.Content("/Uploadcpic/"+ViewBag.banner.homePhoto)')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-6">
+                    <div class="pa-banner-text">
+                        @*<h4 class="pa-banner-category">Aloevera Cream</h4>*@
+                        <h2>@ViewBag.banner.homestatement </h2>
+                        <p>
+
+                            @ViewBag.banner.slidesc
+                        </p>
+                        <a href="/home/ApplyNow" class="pa-view-all">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+  <!-- top medicine start -->
+<div class="pa-medicine spacer-top spacer-bottom">
+    <div class="container">
+        <div class="row">
+
+            @foreach (var item in ViewBag.homeprod)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="pa-medicine-box">
+                        <img src="@Url.Content("/BlogImage/"+@item.productimage+"?w=290&h=230&mode=stretch")" alt="image" class="img-fluid" />
+                        <h2><a href="#">@item.fldprodtitle</a></h2>
+                        <a href="#">@item.fldprodsubtitle</a>
+
+                    </div>
+                </div>
+            }
+
+
+
+            
+            @*<div class="col-lg-4 col-md-6">
+                <div class="pa-medicine-box">
+                    <img src="/www/assets/images/top2.jpg" alt="image" class="img-fluid" />
+                    <h2><a href="#">Fresh Product</a></h2>
+                    <a href="#">Herbal Medicine</a>
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="pa-medicine-box">
+                    <img src="/www/assets/images/top3.jpg" alt="image" class="img-fluid" />
+                    <h2><a href="#">Total Care</a></h2>
+                    <a href="#">Pure Herbal</a>
+
+                </div>
+            </div>*@
+        </div>
+    </div>
+</div>
+<!-- top medicine end -->
+<!-- why start -->
+<div class="pa-why spacer-top spacer-bottom">
+    <div class="container">
+        <div class="pa-heading">
+            <img src="/www/assets/images/herbal.svg" alt="image" class="img-fluid" />
+            <h1>why pure Ayurveda</h1>
+            <h5>best for you</h5>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 pr-0">
+                <div class="pa-why-ul pa-why-left">
+                    <ul>
+                        <li>100 % Organic</li>
+                        <li>Best Quality</li>
+                        <li>hygienic product</li>
+                        <li>Quality tested</li>
+                        <li>Health Care</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 p-0">
+                <div class="pa-why-img">
+                    <img src="/www/assets/images/herbal.svg" alt="image" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 pl-0">
+                <div class="pa-why-ul pa-why-right">
+                    <ul>
+                        <li>100 % Organic</li>
+                        <li>Best Quality</li>
+                        <li>hygienic product</li>
+                        <li>Quality tested</li>
+                        <li>Health Care</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- blog start -->
+<div class="pa-blog spacer-top spacer-bottom">
+    <div class="container">
+        <div class="pa-heading">
+            <img src="/www/assets/images/herbal.svg" alt="image" class="img-fluid" />
+            <h1>Our Blogs</h1>
+            <h5>blog</h5>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.blogs)
+            {
+
+                string s1 = System.Text.RegularExpressions.Regex.Replace(item.blogtitle, "[^A-za-z0-9_]", "");
+                string url = "/Blog/Details/" + s1.Replace(",", "-") + "_" + item.id;
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="pa-blog-box">
+                        <img src="@Url.Content("/BlogImage/"+@item.blogimage+"?w=348&h=248&mode=stretch")" alt="image" class="img-fluid">
+                        <div class="pa-blog-title">
+                            <a href="@url" class="pa-blog-category">@item.tblcategory.fldcategoryname</a>
+                            <h2><a href="@url">@item.blogtitle</a></h2>
+                            <a href="#" class="pa-blog-date">@item.blogentrydate</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+           
+        </div>
+    </div>
+</div>
+<hr />
+
+
+<!-- blog end -->
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

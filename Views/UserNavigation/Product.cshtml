@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumbs-area">
+    @*<h3>Welcome To Real me Partner</h3>*@
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>Product</li>
+    </ul>
+</div>
+<div class="row">
+    <!-- Student Info Area Start Here -->
+    <div class="col-12">
+        <div class="card dashboard-card-ten">
+            <div class="card-body">
+                <div class="card dashboard-card-six pd-b-20">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">User id</label>
+                                <input type="text" class="form-control" name="userid" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                <input type="password" class="form-control" name="password" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="button" id="prodserch" class="btn-fill-md text-light bg-dark-pastel-green" value="Submit" style="margin-top: 10%;" />
+                        </div>
+                    </div>
+
+                    <div class="row" id="usermsg" >
+                        <div class="card message-box-wrap height-auto" style="width:100%">
+                            <div class="card-body">
+                                <div class="heading-layout1">
+                                    <div class="item-title">
+                                        <h3>Login Failed</h3>
+                                    </div>
+                                    
+                                </div>
+                                <div class="message-error-box">
+                                    <div class="item-content">
+                                        <div class="item-icon">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                        </div>
+                                        <h3 class="item-title"> User id Id is  Invalid Please Go to Pro Version </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+
+                        @{
+                            try
+                            {
+                                foreach (var item in ViewBag.userprod)
+                                {
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="pa-medicine-box">
+                                            <img src="@Url.Content("/BlogImage/"+@item.productimage+"?w=290&h=230&mode=stretch")" alt="image" class="img-fluid" />
+                                            <h2><a href="#">@item.fldprodtitle</a></h2>
+                                            <a href="#">@item.fldprodsubtitle</a>
+
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            catch (Exception)
+                            {
+
+
+                            }
+                        }
+
+                       
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+
+            $('#usermsg').hide();
+
+            $("#prodserch").click(function () {
+
+                $('#usermsg').show();
+            });
+        })
+    </script>
+    
+    
+    }

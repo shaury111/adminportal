@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Notification";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="breadcrumbs-area">
+    @*<h3>Welcome To Real me Partner</h3>*@
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>Notification</li>
+    </ul>
+</div>
+<div class="row">
+    <!-- Student Info Area Start Here -->
+    <div class="col-12">
+        <div class="card dashboard-card-ten">
+            <div class="card-body">
+        <div class="card dashboard-card-six pd-b-20">
+
+                        <div class="card-body">
+                            <div class="heading-layout1 mg-b-17">
+                                <div class="item-title">
+                                    <h3>Notice Board</h3>
+                                </div>
+                                @*<div class="dropdown">
+                            <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
+
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>Close</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                            </div>
+                        </div>*@
+                            </div>
+                            <div class="notice-box-wrap">
+                                @{
+
+
+                                    try
+                                    {
+
+                                        foreach (var item in @ViewBag.Noticelist)
+                                        {
+                                            <div class="notice-list">
+                                                <div class="post-date bg-skyblue">@Convert.ToDateTime(item.NoticeDate).ToString("dd-MM-yyyy")</div>
+                                                <h6 class="notice-title">
+                                                    <a href="#">
+                                                        @item.NoticeTitle
+                                                    </a>
+                                                </h6>
+                                                <div class="entry-meta"> @item.NoticeDescription</div>
+                                            </div>
+                                        }
+
+                                    }
+                                    catch (Exception)
+                                    {
+
+
+                                    }
+                                }
+
+
+
+                               
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+

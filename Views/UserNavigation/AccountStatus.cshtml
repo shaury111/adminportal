@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "AccountStatus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumbs-area">
+    @*<h3>Welcome To Real me Partner</h3>*@
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>Account Status</li>
+    </ul>
+</div>
+
+<div class="col-12">
+    <div class="card dashboard-card-ten">
+        <div class="card-body">
+
+            <div class="row gutters-20">
+
+                @{
+
+                    if (ViewBag.statushistiry != null)
+                    {
+
+                        try
+                        {
+                            foreach (var item in ViewBag.statushistiry)
+                            {
+
+                                <div class="col-lg-3 col-sm-6 col-12">
+                                    <div class="card dashboard-card-seven">
+                                        <div class="social-media bg-fb hover-fb">
+                                            <div class="media media-none--lg">
+                                                
+                                                <div class="media-body space-sm">
+                                                    <h6 class="social-like">@item.statusKey</h6>
+                                                </div>
+                                            </div>
+                                            <div style="color:wheat" class="item-title">@item.statusDescription</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+
+                        }
+
+
+                    }
+                    else
+                    {
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="card dashboard-card-seven">
+                                <div class="social-media bg-fb hover-fb">
+                                    <div class="media media-none--lg">
+
+                                        <div class="media-body space-sm">
+                                            <h6 class="item-title">Status Not Updated</h6>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+
+
+
+
+                
+                
+            </div>
+
+            </div></div></div>

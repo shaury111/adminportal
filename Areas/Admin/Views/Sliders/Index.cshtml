@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SiteAllAdmin.Models.HomeSlider>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="breadcrumbs-area">
+    <h3>Banner</h3>
+    <ul>
+        <li>
+            <a href="/admin/dashboard">Home</a>
+        </li>
+        <li>Home Banner</li>
+    </ul>
+</div>
+
+<div class="card height-auto">
+    <div class="card-body">
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.homePhoto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.homestatement)
+                </th>
+                <th>Description</th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model) {
+    <tr class="@(item.fldstatus==true?"":"text-danger")" data-toggle="tooltip" data-placement="top" title="@(item.fldstatus==true?"":"This Sliders is Deactivated Right Now")">
+        <td>
+            @if (item.homePhoto != null)
+            {
+            <img src="@Url.Content("/Uploadcpic/"+item.homePhoto)" width="30" />
+            }
+            else
+            {
+            <img src="/img/figure/2.jpg" style="width:30px" alt="@item.homePhoto">
+            }
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.homestatement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.slidesc)
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+        </table>
+</div></div>

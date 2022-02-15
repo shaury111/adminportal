@@ -1,0 +1,95 @@
+﻿@model IEnumerable<SiteAllAdmin.Models.tblPayment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumbs-area">
+    <h3>Invoices</h3>
+    <ul>
+        <li>
+            <a href="/admin/dashboard">Home</a>
+        </li>
+        <li>Invoice List</li>
+    </ul>
+</div>
+
+
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3>
+                    Invoice
+                    <small>
+                        @Html.ActionLink("Create New", "Create")
+                    </small>
+                </h3>
+            </div>
+
+        </div>
+
+        <div class="table-responsive">
+            <div>
+                <table class="table" id="customerdata">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.InvTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.InvDesc)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PublishedDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.InvDocument)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserDetail.fldName)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.InvTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.InvDesc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PublishedDate)
+                            </td>
+                            <td>
+                                @if (item.InvDocument != null)
+                                {
+                                    <a href="/Uploadcpic/@item.InvDocument" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a>
+                                    @*<img src="@Url.Content("/Uploadcpic/"+item.InvDocument+"?w=100&h=100&mode=stretch")" />*@
+                                }
+                                else
+                                {
+                                    <img src="/img/figure/2.jpg??w=160&h=100" style="width:30px" alt="@item.InvDocument">
+                                }
+                                @*@Html.DisplayFor(modelItem => item.InvDocument)*@
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserDetail.fldName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                @*@Html.ActionLink("Details", "Details", new { id = item.id }) |*@
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                </div></div></div></div>
+
+                
+                

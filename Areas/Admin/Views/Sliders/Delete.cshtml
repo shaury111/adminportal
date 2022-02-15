@@ -1,0 +1,56 @@
+﻿@model SiteAllAdmin.Models.HomeSlider
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>HomeSlider</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.homePhoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.homePhoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.homestatement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.homestatement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fldstatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fldstatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.flddoe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flddoe)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

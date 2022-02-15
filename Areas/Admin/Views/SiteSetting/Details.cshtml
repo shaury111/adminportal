@@ -1,0 +1,107 @@
+﻿@model SiteAllAdmin.Models.SiteSetting
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SiteSetting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sitephoneno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sitephoneno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.siteemailid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.siteemailid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sitecontactno2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sitecontactno2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.siteAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.siteAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sitelogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sitelogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fblink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fblink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.twiterlink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.twiterlink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gpluslink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gpluslink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.shortaddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shortaddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sitename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sitename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.shortdescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shortdescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

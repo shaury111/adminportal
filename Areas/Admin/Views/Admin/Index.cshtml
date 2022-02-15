@@ -1,0 +1,133 @@
+﻿@model IEnumerable<SiteCMS.Models.EnquiryiesViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="breadcrumbs-area">
+    <h3>Enquiry</h3>
+    <ul>
+        <li>
+            <a href="/admin/">Home</a>
+        </li>
+        <li>New Enquiry</li>
+    </ul>
+</div>
+<div class="card height-auto">
+    <div class="card-body">
+        <div class="heading-layout1">
+            <div class="item-title">
+                <h3>All New Enquiry</h3>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">...</a>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-times text-orange-red"></i>Close
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-cogs text-dark-pastel-green"></i>Edit
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-redo-alt text-orange-peel"></i>Refresh
+                    </a>
+                </div>
+            </div>
+        </div>
+        <form class="mg-b-20">
+            <div class="row gutters-8">
+                <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                    <input type="text" placeholder="Search by ID ..." class="form-control">
+                </div>
+                <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                    <input type="text" placeholder="Search by Name ..." class="form-control">
+                </div>
+                <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                    <input type="text" placeholder="Search by Phone ..." class="form-control">
+                </div>
+                <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
+                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+                </div>
+            </div>
+        </form>
+        <div class="table-responsive">
+            <table class="table display data-table text-nowrap">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CustomerName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Customer_Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Customer_phone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.customer_monthly_Income)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.invest_amount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CurentCity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.stateresidance)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApplyFor)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EntryDate)
+                        </th>
+
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Customer_Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Customer_phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.customer_monthly_Income)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.invest_amount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CurentCity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.stateresidance)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplyFor)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EntryDate)
+                            </td>
+
+                            <td>
+
+                                @Html.ActionLink("Move", "Details", new { id = item.id })
+                                @*@Html.ActionLink("Delete", "Delete", new { id=item.id })*@
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

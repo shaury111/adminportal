@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/img/favicon.png">
+    @Styles.Render("~/SiteContentLogin/css")
+    <link rel="stylesheet" href="~/fonts/flaticon.css">
+    @Styles.Render("~/FontMaster/Fonts")
+    @*<link rel="stylesheet" href="~/css/bootstrap.min.css">*@
+
+
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+
+                        @{
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>@Html.ActionLink("About", "About", "Home")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                            }
+                            if (User.IsInRole("User"))
+                            {
+                                <li>@Html.ActionLink("Home", "Index", "User")</li>
+                                <li>@Html.ActionLink("About", "About", "Page")</li>
+
+                            }
+                            if (User.Identity.IsAuthenticated)
+                {
+                    <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+    <div id="wrapper" class="wrapper bg-ash">
+        @Html.Partial("~/Views/Shared/_TopNavigation.cshtml")
+        <div class="dashboard-page-one">
+            @Html.Partial("~/Views/Shared/_sidebarmenu.cshtml")
+            <div class="dashboard-content-one">
+                @RenderBody()
+            </div>
+            @Html.Partial("~/Views/Shared/_footer.cshtml")
+
+            @*<footer>
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                </footer>*@
+        </div>
+    </div>
+
+    @Scripts.Render("~/MyCommonJs/CommonJs");
+   
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

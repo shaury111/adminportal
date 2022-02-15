@@ -1,0 +1,2021 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JobPortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AboutUsPage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AboutUsmessage" Type="varchar(max)" />
+          <Property Name="AboutImage" Type="varchar" MaxLength="500" />
+          <Property Name="fldstatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="Addextrafeature">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="rfid" Type="int" />
+          <Property Name="columnname" Type="varchar" MaxLength="5000" />
+          <Property Name="columnvalue" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Admintable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminname" Type="varchar" MaxLength="500" />
+          <Property Name="adminpassword" Type="varchar" MaxLength="50" />
+          <Property Name="roleid" Type="int" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ApplicationEnquiry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="500" />
+          <Property Name="Customer_Email" Type="varchar" MaxLength="500" />
+          <Property Name="Customer_phone" Type="varchar" MaxLength="50" />
+          <Property Name="customer_monthly_Income" Type="varchar" MaxLength="50" />
+          <Property Name="invest_amount" Type="varchar" MaxLength="50" />
+          <Property Name="CurentCity" Type="varchar" MaxLength="50" />
+          <Property Name="stateresidance" Type="varchar" MaxLength="500" />
+          <Property Name="ApplyFor" Type="varchar" MaxLength="500" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="fldextra" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cid" Type="int" />
+          <Property Name="blogtitle" Type="nvarchar(max)" />
+          <Property Name="blogDesc" Type="nvarchar(max)" />
+          <Property Name="blogimage" Type="varchar" MaxLength="500" />
+          <Property Name="blogentrydate" Type="datetime" />
+          <Property Name="fldextra" Type="nvarchar(max)" />
+          <Property Name="fldextra1" Type="nvarchar(max)" />
+          <Property Name="fldextra2" Type="nvarchar(max)" />
+          <Property Name="fldextra3" Type="nvarchar(max)" />
+          <Property Name="fldextra4" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="BorrowEnquiry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnquiryName" Type="varchar" MaxLength="500" />
+          <Property Name="EnquiryEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EnquiryPhone" Type="varchar" MaxLength="50" />
+          <Property Name="EnquiryMessage" Type="varchar" MaxLength="500" />
+          <Property Name="EnquiryLoanAmount" Type="varchar" MaxLength="50" />
+          <Property Name="EnquiryYear" Type="varchar" MaxLength="50" />
+          <Property Name="fldstatus" Type="bit" />
+          <Property Name="EnquiryDate" Type="datetime" />
+          <Property Name="fldextra" Type="varchar" MaxLength="100" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CustomerStatement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cus_name" Type="varchar" MaxLength="500" />
+          <Property Name="Cus_Image" Type="varchar" MaxLength="500" />
+          <Property Name="Cus_statement" Type="varchar" MaxLength="5000" />
+          <Property Name="fldstatus" Type="bit" />
+          <Property Name="fldextra" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="500" />
+          <Property Name="flddoe" Type="datetime" />
+        </EntityType>
+        <EntityType Name="HomeEnquiry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicantName" Type="varchar" MaxLength="500" />
+          <Property Name="ApplicantMobile" Type="varchar" MaxLength="50" />
+          <Property Name="ApplicantEmail" Type="varchar" MaxLength="50" />
+          <Property Name="ApplicantAddress" Type="varchar" MaxLength="500" />
+          <Property Name="Cityid" Type="int" />
+          <Property Name="Stateid" Type="int" />
+          <Property Name="ApplicantResume" Type="varchar" MaxLength="500" />
+          <Property Name="Applydate" Type="datetime" />
+          <Property Name="fldstatus" Type="bit" />
+          <Property Name="fldextra" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HomeSlider">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="homePhoto" Type="varchar" MaxLength="500" />
+          <Property Name="homestatement" Type="varchar" MaxLength="500" />
+          <Property Name="fldstatus" Type="bit" />
+          <Property Name="flddoe" Type="datetime" />
+          <Property Name="slidesc" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="jobSubcategory">
+          <Key>
+            <PropertyRef Name="JobSubCategoryId" />
+          </Key>
+          <Property Name="JobSubCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobCatId" Type="int" />
+          <Property Name="JobSubcategoryname" Type="varchar" MaxLength="500" />
+          <Property Name="desscription" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="IsShow" Type="bit" />
+          <Property Name="Flstatus" Type="bit" />
+          <Property Name="fldextra" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra3" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra4" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra5" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SeoSetting">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pagetitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="pagedesciption" Type="nvarchar" MaxLength="2000" />
+          <Property Name="pagemeta" Type="nvarchar" MaxLength="3000" />
+          <Property Name="keywords" Type="nvarchar" MaxLength="4000" />
+          <Property Name="PageName" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SiteSetting">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sitephoneno" Type="varchar" MaxLength="50" />
+          <Property Name="siteemailid" Type="varchar" MaxLength="50" />
+          <Property Name="sitecontactno2" Type="varchar" MaxLength="50" />
+          <Property Name="siteAddress" Type="varchar(max)" />
+          <Property Name="sitelogo" Type="varchar(max)" />
+          <Property Name="fblink" Type="varchar(max)" />
+          <Property Name="twiterlink" Type="varchar(max)" />
+          <Property Name="gpluslink" Type="varchar(max)" />
+          <Property Name="shortaddress" Type="varchar" MaxLength="500" />
+          <Property Name="sitename" Type="varchar" MaxLength="500" />
+          <Property Name="shortdescription" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="StatusKeyPair">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statusKey" Type="nvarchar" MaxLength="500" />
+          <Property Name="statusDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="cid" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_customercomplaint">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cid" Type="int" />
+          <Property Name="comp_title" Type="nvarchar" MaxLength="500" />
+          <Property Name="comp_desc" Type="nvarchar(max)" />
+          <Property Name="comp_date" Type="datetime" />
+          <Property Name="fldextra" Type="nvarchar(max)" />
+          <Property Name="fldextra1" Type="nvarchar(max)" />
+          <Property Name="fldextra2" Type="nvarchar(max)" />
+          <Property Name="fldextra3" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblcategory">
+          <Key>
+            <PropertyRef Name="fldcatid" />
+          </Key>
+          <Property Name="fldcatid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldcategoryname" Type="nvarchar" MaxLength="250" />
+          <Property Name="fldcategorytitle" Type="nvarchar" MaxLength="2000" />
+          <Property Name="fldcategorykeyword" Type="varchar" MaxLength="2000" />
+          <Property Name="flddescription" Type="varchar" MaxLength="2000" />
+          <Property Name="IsShow" Type="bit" />
+          <Property Name="fldextra" Type="varchar" MaxLength="200" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="200" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="200" />
+          <Property Name="fldextra3" Type="varchar" MaxLength="200" />
+          <Property Name="fldstatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblcity">
+          <Key>
+            <PropertyRef Name="fldcityid" />
+          </Key>
+          <Property Name="fldcityid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldstateid" Type="int" />
+          <Property Name="fldcityname" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="500" />
+          <Property Name="fldstatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblenquiry">
+          <Key>
+            <PropertyRef Name="fldenquiryid" />
+          </Key>
+          <Property Name="fldenquiryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldjoblistid" Type="int" />
+          <Property Name="fldname" Type="varchar" MaxLength="150" />
+          <Property Name="fldemail" Type="varchar" MaxLength="150" />
+          <Property Name="fldfulladdress" Type="varchar" MaxLength="500" />
+          <Property Name="fldmobno" Type="varchar" MaxLength="20" />
+          <Property Name="fldextra" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra3" Type="varchar" MaxLength="500" />
+          <Property Name="fldstatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbljobimages">
+          <Key>
+            <PropertyRef Name="fldjobimgid" />
+          </Key>
+          <Property Name="fldjobimgid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="joblistid" Type="int" />
+          <Property Name="fldfilename" Type="varchar" MaxLength="100" />
+          <Property Name="fldextra" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra3" Type="varchar" MaxLength="500" />
+          <Property Name="fldstatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbljoblist">
+          <Key>
+            <PropertyRef Name="fldjoblistid" />
+          </Key>
+          <Property Name="fldjoblistid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldjobcategoryid" Type="int" />
+          <Property Name="fldsubcatid" Type="int" />
+          <Property Name="fldstateid" Type="int" />
+          <Property Name="fldcityid" Type="int" />
+          <Property Name="fldjobtitle" Type="varchar" MaxLength="500" />
+          <Property Name="fldjobname" Type="varchar" MaxLength="500" />
+          <Property Name="fldjobdescription" Type="varchar" MaxLength="5000" />
+          <Property Name="fldexperience" Type="varchar" MaxLength="50" />
+          <Property Name="fldage" Type="varchar" MaxLength="50" />
+          <Property Name="fldeducation" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra3" Type="varchar" MaxLength="500" />
+          <Property Name="fldstatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblLiveEnquiry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="500" />
+          <Property Name="Customer_Email" Type="varchar" MaxLength="500" />
+          <Property Name="Customer_phone" Type="varchar" MaxLength="50" />
+          <Property Name="customer_monthly_Income" Type="varchar" MaxLength="50" />
+          <Property Name="invest_amount" Type="varchar" MaxLength="50" />
+          <Property Name="CurentCity" Type="varchar" MaxLength="50" />
+          <Property Name="stateresidance" Type="varchar" MaxLength="500" />
+          <Property Name="ApplyFor" Type="varchar" MaxLength="500" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="fldextra" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblnotification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cid" Type="int" />
+          <Property Name="NoticeTitle" Type="varchar" MaxLength="5000" />
+          <Property Name="NoticeDescription" Type="varchar(max)" />
+          <Property Name="NoticeDate" Type="datetime" />
+          <Property Name="fldstatus" Type="bit" />
+          <Property Name="attachment" Type="varchar" MaxLength="5000" />
+          <Property Name="fldextra" Type="varchar" MaxLength="5000" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="5000" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="5000" />
+          <Property Name="fldextra3" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="tblPayment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cid" Type="int" />
+          <Property Name="InvTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="InvDesc" Type="nvarchar(max)" />
+          <Property Name="PublishedDate" Type="datetime" />
+          <Property Name="InvDocument" Type="varchar" MaxLength="500" />
+          <Property Name="invStatus" Type="bit" />
+          <Property Name="fldextra" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblproduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldprodtitle" Type="nvarchar" MaxLength="4000" />
+          <Property Name="fldprodsubtitle" Type="nvarchar" MaxLength="4000" />
+          <Property Name="flddescription" Type="nvarchar(max)" />
+          <Property Name="entrydate" Type="datetime" />
+          <Property Name="fldseotitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="fldseokeyword" Type="nvarchar" MaxLength="530" />
+          <Property Name="fldextra" Type="nvarchar" MaxLength="50" />
+          <Property Name="fldextra1" Type="nvarchar" MaxLength="50" />
+          <Property Name="productimage" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tblregistration">
+          <Key>
+            <PropertyRef Name="fldregistrationid" />
+          </Key>
+          <Property Name="fldregistrationid" Type="int" Nullable="false" />
+          <Property Name="fldemployeetype" Type="varchar" MaxLength="50" />
+          <Property Name="fldroleid" Type="int" />
+          <Property Name="fldname" Type="varchar" MaxLength="150" />
+          <Property Name="fldemail" Type="varchar" MaxLength="150" />
+          <Property Name="fldmobno" Type="varchar" MaxLength="20" />
+          <Property Name="fldaddress" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="500" />
+          <Property Name="fldstatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblrole">
+          <Key>
+            <PropertyRef Name="fldroleid" />
+          </Key>
+          <Property Name="fldroleid" Type="int" Nullable="false" />
+          <Property Name="fldrole" Type="varchar" MaxLength="150" />
+          <Property Name="fldextra" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra3" Type="varchar" MaxLength="500" />
+          <Property Name="fldstatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblstate">
+          <Key>
+            <PropertyRef Name="fldstateid" />
+          </Key>
+          <Property Name="fldstateid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldstatename" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="500" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="500" />
+          <Property Name="fldstatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fldName" Type="varchar" MaxLength="500" />
+          <Property Name="fldMobile" Type="varchar" MaxLength="500" />
+          <Property Name="fldemail" Type="varchar" MaxLength="500" />
+          <Property Name="fldsreet" Type="varchar" MaxLength="5000" />
+          <Property Name="fldstate" Type="varchar" MaxLength="500" />
+          <Property Name="fldcity" Type="varchar" MaxLength="500" />
+          <Property Name="fldpincode" Type="varchar" MaxLength="500" />
+          <Property Name="fldstorename" Type="varchar" MaxLength="500" />
+          <Property Name="fldstoreemail" Type="varchar" MaxLength="50" />
+          <Property Name="fldstorecontactno" Type="varchar" MaxLength="50" />
+          <Property Name="fldshopcode" Type="varchar" MaxLength="500" />
+          <Property Name="fldstoreaddress" Type="varchar" MaxLength="500" />
+          <Property Name="fldstorestate" Type="varchar" MaxLength="500" />
+          <Property Name="fldstorecity" Type="varchar" MaxLength="500" />
+          <Property Name="fldstorepincode" Type="varchar" MaxLength="500" />
+          <Property Name="fldpassword" Type="varchar" MaxLength="500" />
+          <Property Name="fldstatus" Type="bit" />
+          <Property Name="fldcreateddate" Type="datetime" />
+          <Property Name="fldimage" Type="varchar" MaxLength="500" />
+          <Property Name="roletype" Type="int" />
+          <Property Name="StatusKey" Type="nvarchar" MaxLength="500" />
+          <Property Name="StatusDescription" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="WebGallery">
+          <Key>
+            <PropertyRef Name="gid" />
+          </Key>
+          <Property Name="gid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gimage" Type="varchar" MaxLength="5000" />
+          <Property Name="gimagedecription" Type="varchar" MaxLength="5000" />
+          <Property Name="fldstatus" Type="bit" />
+          <Property Name="GDate" Type="datetime" />
+          <Property Name="fldextra" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WebSiteNotice">
+          <Key>
+            <PropertyRef Name="nid" />
+          </Key>
+          <Property Name="nid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoticeTitle" Type="nvarchar(max)" />
+          <Property Name="NoticeDescription" Type="nvarchar(max)" />
+          <Property Name="NoticeDate" Type="datetime" />
+          <Property Name="fldstatus" Type="bit" />
+          <Property Name="fldextra" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra1" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra2" Type="varchar" MaxLength="50" />
+          <Property Name="fldextra3" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Addextrafeature_UserDetails">
+          <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="0..1" />
+          <End Role="Addextrafeature" Type="Self.Addextrafeature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Addextrafeature">
+              <PropertyRef Name="rfid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Admintable_tblrole">
+          <End Role="tblrole" Type="Self.tblrole" Multiplicity="0..1" />
+          <End Role="Admintable" Type="Self.Admintable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblrole">
+              <PropertyRef Name="fldroleid" />
+            </Principal>
+            <Dependent Role="Admintable">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blog_tblcategory">
+          <End Role="tblcategory" Type="Self.tblcategory" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcategory">
+              <PropertyRef Name="fldcatid" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jobSubcategory_JobCategory">
+          <End Role="tblcategory" Type="Self.tblcategory" Multiplicity="0..1" />
+          <End Role="jobSubcategory" Type="Self.jobSubcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcategory">
+              <PropertyRef Name="fldcatid" />
+            </Principal>
+            <Dependent Role="jobSubcategory">
+              <PropertyRef Name="JobCatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblcity_tblstate">
+          <End Role="tblstate" Type="Self.tblstate" Multiplicity="0..1" />
+          <End Role="tblcity" Type="Self.tblcity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblstate">
+              <PropertyRef Name="fldstateid" />
+            </Principal>
+            <Dependent Role="tblcity">
+              <PropertyRef Name="fldstateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblenquiry_tbljoblist">
+          <End Role="tbljoblist" Type="Self.tbljoblist" Multiplicity="0..1" />
+          <End Role="tblenquiry" Type="Self.tblenquiry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbljoblist">
+              <PropertyRef Name="fldjoblistid" />
+            </Principal>
+            <Dependent Role="tblenquiry">
+              <PropertyRef Name="fldjoblistid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbljobimages_tbljoblist">
+          <End Role="tbljoblist" Type="Self.tbljoblist" Multiplicity="0..1" />
+          <End Role="tbljobimages" Type="Self.tbljobimages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbljoblist">
+              <PropertyRef Name="fldjoblistid" />
+            </Principal>
+            <Dependent Role="tbljobimages">
+              <PropertyRef Name="joblistid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbljoblist_tblcategory">
+          <End Role="tblcategory" Type="Self.tblcategory" Multiplicity="0..1" />
+          <End Role="tbljoblist" Type="Self.tbljoblist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcategory">
+              <PropertyRef Name="fldcatid" />
+            </Principal>
+            <Dependent Role="tbljoblist">
+              <PropertyRef Name="fldjobcategoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbljoblist_tblcity">
+          <End Role="tblcity" Type="Self.tblcity" Multiplicity="0..1" />
+          <End Role="tbljoblist" Type="Self.tbljoblist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcity">
+              <PropertyRef Name="fldcityid" />
+            </Principal>
+            <Dependent Role="tbljoblist">
+              <PropertyRef Name="fldcityid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbljoblist_tblstate">
+          <End Role="tblstate" Type="Self.tblstate" Multiplicity="0..1" />
+          <End Role="tbljoblist" Type="Self.tbljoblist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblstate">
+              <PropertyRef Name="fldstateid" />
+            </Principal>
+            <Dependent Role="tbljoblist">
+              <PropertyRef Name="fldstateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblnotification_UserDetails">
+          <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="0..1" />
+          <End Role="tblnotification" Type="Self.tblnotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblnotification">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPayment_UserDetails">
+          <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="0..1" />
+          <End Role="tblPayment" Type="Self.tblPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblPayment">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblregistration_tblrole">
+          <End Role="tblrole" Type="Self.tblrole" Multiplicity="0..1" />
+          <End Role="tblregistration" Type="Self.tblregistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblrole">
+              <PropertyRef Name="fldroleid" />
+            </Principal>
+            <Dependent Role="tblregistration">
+              <PropertyRef Name="fldroleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblstate_tblstate">
+          <End Role="tblstate" Type="Self.tblstate" Multiplicity="1" />
+          <End Role="tblstate1" Type="Self.tblstate" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tblstate">
+              <PropertyRef Name="fldstateid" />
+            </Principal>
+            <Dependent Role="tblstate1">
+              <PropertyRef Name="fldstateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDetails_tblrole">
+          <End Role="tblrole" Type="Self.tblrole" Multiplicity="0..1" />
+          <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblrole">
+              <PropertyRef Name="fldroleid" />
+            </Principal>
+            <Dependent Role="UserDetails">
+              <PropertyRef Name="roletype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_Categorywisejobfetch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fldcatid" Type="int" Mode="In" />
+          <Parameter Name="JobSubCategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Categorywisejobfetch_" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fldcatid" Type="int" Mode="In" />
+          <Parameter Name="JobSubCategoryId" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="JobPortalModelStoreContainer">
+          <EntitySet Name="AboutUsPage" EntityType="Self.AboutUsPage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Addextrafeature" EntityType="Self.Addextrafeature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admintable" EntityType="Self.Admintable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApplicationEnquiry" EntityType="Self.ApplicationEnquiry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BorrowEnquiry" EntityType="Self.BorrowEnquiry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerStatement" EntityType="Self.CustomerStatement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeEnquiry" EntityType="Self.HomeEnquiry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeSlider" EntityType="Self.HomeSlider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jobSubcategory" EntityType="Self.jobSubcategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeoSetting" EntityType="Self.SeoSetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiteSetting" EntityType="Self.SiteSetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusKeyPair" EntityType="Self.StatusKeyPair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_customercomplaint" EntityType="Self.tbl_customercomplaint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblcategory" EntityType="Self.tblcategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblcity" EntityType="Self.tblcity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblenquiry" EntityType="Self.tblenquiry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbljobimages" EntityType="Self.tbljobimages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbljoblist" EntityType="Self.tbljoblist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLiveEnquiry" EntityType="Self.tblLiveEnquiry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblnotification" EntityType="Self.tblnotification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPayment" EntityType="Self.tblPayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblproduct" EntityType="Self.tblproduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblregistration" EntityType="Self.tblregistration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblrole" EntityType="Self.tblrole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblstate" EntityType="Self.tblstate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WebGallery" EntityType="Self.WebGallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WebSiteNotice" EntityType="Self.WebSiteNotice" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Addextrafeature_UserDetails" Association="Self.FK_Addextrafeature_UserDetails">
+            <End Role="UserDetails" EntitySet="UserDetails" />
+            <End Role="Addextrafeature" EntitySet="Addextrafeature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Admintable_tblrole" Association="Self.FK_Admintable_tblrole">
+            <End Role="tblrole" EntitySet="tblrole" />
+            <End Role="Admintable" EntitySet="Admintable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blog_tblcategory" Association="Self.FK_Blog_tblcategory">
+            <End Role="tblcategory" EntitySet="tblcategory" />
+            <End Role="Blog" EntitySet="Blog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jobSubcategory_JobCategory" Association="Self.FK_jobSubcategory_JobCategory">
+            <End Role="tblcategory" EntitySet="tblcategory" />
+            <End Role="jobSubcategory" EntitySet="jobSubcategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblcity_tblstate" Association="Self.FK_tblcity_tblstate">
+            <End Role="tblstate" EntitySet="tblstate" />
+            <End Role="tblcity" EntitySet="tblcity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblenquiry_tbljoblist" Association="Self.FK_tblenquiry_tbljoblist">
+            <End Role="tbljoblist" EntitySet="tbljoblist" />
+            <End Role="tblenquiry" EntitySet="tblenquiry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbljobimages_tbljoblist" Association="Self.FK_tbljobimages_tbljoblist">
+            <End Role="tbljoblist" EntitySet="tbljoblist" />
+            <End Role="tbljobimages" EntitySet="tbljobimages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbljoblist_tblcategory" Association="Self.FK_tbljoblist_tblcategory">
+            <End Role="tblcategory" EntitySet="tblcategory" />
+            <End Role="tbljoblist" EntitySet="tbljoblist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbljoblist_tblcity" Association="Self.FK_tbljoblist_tblcity">
+            <End Role="tblcity" EntitySet="tblcity" />
+            <End Role="tbljoblist" EntitySet="tbljoblist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbljoblist_tblstate" Association="Self.FK_tbljoblist_tblstate">
+            <End Role="tblstate" EntitySet="tblstate" />
+            <End Role="tbljoblist" EntitySet="tbljoblist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblnotification_UserDetails" Association="Self.FK_tblnotification_UserDetails">
+            <End Role="UserDetails" EntitySet="UserDetails" />
+            <End Role="tblnotification" EntitySet="tblnotification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPayment_UserDetails" Association="Self.FK_tblPayment_UserDetails">
+            <End Role="UserDetails" EntitySet="UserDetails" />
+            <End Role="tblPayment" EntitySet="tblPayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblregistration_tblrole" Association="Self.FK_tblregistration_tblrole">
+            <End Role="tblrole" EntitySet="tblrole" />
+            <End Role="tblregistration" EntitySet="tblregistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblstate_tblstate" Association="Self.FK_tblstate_tblstate">
+            <End Role="tblstate" EntitySet="tblstate" />
+            <End Role="tblstate1" EntitySet="tblstate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDetails_tblrole" Association="Self.FK_UserDetails_tblrole">
+            <End Role="tblrole" EntitySet="tblrole" />
+            <End Role="UserDetails" EntitySet="UserDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JobPortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AboutUsPage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AboutUsmessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AboutImage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Addextrafeature">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="rfid" Type="Int32" />
+          <Property Name="columnname" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="columnvalue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserDetail" Relationship="Self.FK_Addextrafeature_UserDetails" FromRole="Addextrafeature" ToRole="UserDetails" />
+        </EntityType>
+        <EntityType Name="Admintable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="adminpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="roleid" Type="Int32" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblrole" Relationship="Self.FK_Admintable_tblrole" FromRole="Admintable" ToRole="tblrole" />
+        </EntityType>
+        <EntityType Name="ApplicationEnquiry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="customer_monthly_Income" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="invest_amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CurentCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="stateresidance" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ApplyFor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="fldextra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="blogtitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="blogDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="blogimage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="blogentrydate" Type="DateTime" Precision="3" />
+          <Property Name="fldextra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldextra1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldextra2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldextra3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldextra4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblcategory" Relationship="Self.FK_Blog_tblcategory" FromRole="Blog" ToRole="tblcategory" />
+        </EntityType>
+        <EntityType Name="BorrowEnquiry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnquiryName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EnquiryEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EnquiryPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EnquiryMessage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EnquiryLoanAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EnquiryYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <Property Name="EnquiryDate" Type="DateTime" Precision="3" />
+          <Property Name="fldextra" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CustomerStatement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cus_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Cus_Image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Cus_statement" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <Property Name="fldextra" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="flddoe" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="HomeEnquiry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicantName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicantMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicantEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicantAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Cityid" Type="Int32" />
+          <Property Name="Stateid" Type="Int32" />
+          <Property Name="ApplicantResume" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Applydate" Type="DateTime" Precision="3" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <Property Name="fldextra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HomeSlider">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="homePhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="homestatement" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <Property Name="flddoe" Type="DateTime" Precision="3" />
+          <Property Name="slidesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="jobSubcategory">
+          <Key>
+            <PropertyRef Name="JobSubCategoryId" />
+          </Key>
+          <Property Name="JobSubCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobCatId" Type="Int32" />
+          <Property Name="JobSubcategoryname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="desscription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="IsShow" Type="Boolean" />
+          <Property Name="Flstatus" Type="Boolean" />
+          <Property Name="fldextra" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra4" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra5" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblcategory" Relationship="Self.FK_jobSubcategory_JobCategory" FromRole="jobSubcategory" ToRole="tblcategory" />
+        </EntityType>
+        <EntityType Name="SeoSetting">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pagetitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pagedesciption" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="pagemeta" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="keywords" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="PageName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SiteSetting">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sitephoneno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="siteemailid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sitecontactno2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="siteAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sitelogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fblink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="twiterlink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="gpluslink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="shortaddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="sitename" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="shortdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StatusKeyPair">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statusKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="statusDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="cid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_customercomplaint">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="comp_title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="comp_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="comp_date" Type="DateTime" Precision="3" />
+          <Property Name="fldextra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldextra1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldextra2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fldextra3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblcategory">
+          <Key>
+            <PropertyRef Name="fldcatid" />
+          </Key>
+          <Property Name="fldcatid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldcategoryname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="fldcategorytitle" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="fldcategorykeyword" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="flddescription" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="IsShow" Type="Boolean" />
+          <Property Name="fldextra" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <NavigationProperty Name="Blogs" Relationship="Self.FK_Blog_tblcategory" FromRole="tblcategory" ToRole="Blog" />
+          <NavigationProperty Name="jobSubcategories" Relationship="Self.FK_jobSubcategory_JobCategory" FromRole="tblcategory" ToRole="jobSubcategory" />
+          <NavigationProperty Name="tbljoblists" Relationship="Self.FK_tbljoblist_tblcategory" FromRole="tblcategory" ToRole="tbljoblist" />
+        </EntityType>
+        <EntityType Name="tblcity">
+          <Key>
+            <PropertyRef Name="fldcityid" />
+          </Key>
+          <Property Name="fldcityid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldstateid" Type="Int32" />
+          <Property Name="fldcityname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <NavigationProperty Name="tblstate" Relationship="Self.FK_tblcity_tblstate" FromRole="tblcity" ToRole="tblstate" />
+          <NavigationProperty Name="tbljoblists" Relationship="Self.FK_tbljoblist_tblcity" FromRole="tblcity" ToRole="tbljoblist" />
+        </EntityType>
+        <EntityType Name="tblenquiry">
+          <Key>
+            <PropertyRef Name="fldenquiryid" />
+          </Key>
+          <Property Name="fldenquiryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldjoblistid" Type="Int32" />
+          <Property Name="fldname" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fldemail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fldfulladdress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldmobno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <NavigationProperty Name="tbljoblist" Relationship="Self.FK_tblenquiry_tbljoblist" FromRole="tblenquiry" ToRole="tbljoblist" />
+        </EntityType>
+        <EntityType Name="tbljobimage">
+          <Key>
+            <PropertyRef Name="fldjobimgid" />
+          </Key>
+          <Property Name="fldjobimgid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="joblistid" Type="Int32" />
+          <Property Name="fldfilename" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <NavigationProperty Name="tbljoblist" Relationship="Self.FK_tbljobimages_tbljoblist" FromRole="tbljobimages" ToRole="tbljoblist" />
+        </EntityType>
+        <EntityType Name="tbljoblist">
+          <Key>
+            <PropertyRef Name="fldjoblistid" />
+          </Key>
+          <Property Name="fldjoblistid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldjobcategoryid" Type="Int32" />
+          <Property Name="fldsubcatid" Type="Int32" />
+          <Property Name="fldstateid" Type="Int32" />
+          <Property Name="fldcityid" Type="Int32" />
+          <Property Name="fldjobtitle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldjobname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldjobdescription" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="fldexperience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldeducation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <NavigationProperty Name="tblcategory" Relationship="Self.FK_tbljoblist_tblcategory" FromRole="tbljoblist" ToRole="tblcategory" />
+          <NavigationProperty Name="tblcity" Relationship="Self.FK_tbljoblist_tblcity" FromRole="tbljoblist" ToRole="tblcity" />
+          <NavigationProperty Name="tblenquiries" Relationship="Self.FK_tblenquiry_tbljoblist" FromRole="tbljoblist" ToRole="tblenquiry" />
+          <NavigationProperty Name="tbljobimages" Relationship="Self.FK_tbljobimages_tbljoblist" FromRole="tbljoblist" ToRole="tbljobimages" />
+          <NavigationProperty Name="tblstate" Relationship="Self.FK_tbljoblist_tblstate" FromRole="tbljoblist" ToRole="tblstate" />
+        </EntityType>
+        <EntityType Name="tblLiveEnquiry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="customer_monthly_Income" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="invest_amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CurentCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="stateresidance" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ApplyFor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="fldextra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblnotification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="NoticeTitle" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="NoticeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NoticeDate" Type="DateTime" Precision="3" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <Property Name="attachment" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra3" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserDetail" Relationship="Self.FK_tblnotification_UserDetails" FromRole="tblnotification" ToRole="UserDetails" />
+        </EntityType>
+        <EntityType Name="tblPayment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="InvTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="InvDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PublishedDate" Type="DateTime" Precision="3" />
+          <Property Name="InvDocument" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="invStatus" Type="Boolean" />
+          <Property Name="fldextra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserDetail" Relationship="Self.FK_tblPayment_UserDetails" FromRole="tblPayment" ToRole="UserDetails" />
+        </EntityType>
+        <EntityType Name="tblproduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldprodtitle" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="fldprodsubtitle" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="flddescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="entrydate" Type="DateTime" Precision="3" />
+          <Property Name="fldseotitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fldseokeyword" Type="String" MaxLength="530" FixedLength="false" Unicode="true" />
+          <Property Name="fldextra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fldextra1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="productimage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblregistration">
+          <Key>
+            <PropertyRef Name="fldregistrationid" />
+          </Key>
+          <Property Name="fldregistrationid" Type="Int32" Nullable="false" />
+          <Property Name="fldemployeetype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldroleid" Type="Int32" />
+          <Property Name="fldname" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fldemail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fldmobno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fldaddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <NavigationProperty Name="tblrole" Relationship="Self.FK_tblregistration_tblrole" FromRole="tblregistration" ToRole="tblrole" />
+        </EntityType>
+        <EntityType Name="tblrole">
+          <Key>
+            <PropertyRef Name="fldroleid" />
+          </Key>
+          <Property Name="fldroleid" Type="Int32" Nullable="false" />
+          <Property Name="fldrole" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <NavigationProperty Name="Admintables" Relationship="Self.FK_Admintable_tblrole" FromRole="tblrole" ToRole="Admintable" />
+          <NavigationProperty Name="tblregistrations" Relationship="Self.FK_tblregistration_tblrole" FromRole="tblrole" ToRole="tblregistration" />
+          <NavigationProperty Name="UserDetails" Relationship="Self.FK_UserDetails_tblrole" FromRole="tblrole" ToRole="UserDetails" />
+        </EntityType>
+        <EntityType Name="tblstate">
+          <Key>
+            <PropertyRef Name="fldstateid" />
+          </Key>
+          <Property Name="fldstateid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldstatename" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <NavigationProperty Name="tblcities" Relationship="Self.FK_tblcity_tblstate" FromRole="tblstate" ToRole="tblcity" />
+          <NavigationProperty Name="tbljoblists" Relationship="Self.FK_tbljoblist_tblstate" FromRole="tblstate" ToRole="tbljoblist" />
+          <NavigationProperty Name="tblstate1" Relationship="Self.FK_tblstate_tblstate" FromRole="tblstate" ToRole="tblstate1" />
+          <NavigationProperty Name="tblstate2" Relationship="Self.FK_tblstate_tblstate" FromRole="tblstate1" ToRole="tblstate" />
+        </EntityType>
+        <EntityType Name="UserDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fldName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldMobile" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldemail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldsreet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="fldstate" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldcity" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldpincode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstorename" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstoreemail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldstorecontactno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldshopcode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstoreaddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstorestate" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstorecity" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstorepincode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldpassword" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <Property Name="fldcreateddate" Type="DateTime" Precision="3" />
+          <Property Name="fldimage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="roletype" Type="Int32" />
+          <Property Name="StatusKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StatusDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Addextrafeatures" Relationship="Self.FK_Addextrafeature_UserDetails" FromRole="UserDetails" ToRole="Addextrafeature" />
+          <NavigationProperty Name="tblnotifications" Relationship="Self.FK_tblnotification_UserDetails" FromRole="UserDetails" ToRole="tblnotification" />
+          <NavigationProperty Name="tblPayments" Relationship="Self.FK_tblPayment_UserDetails" FromRole="UserDetails" ToRole="tblPayment" />
+          <NavigationProperty Name="tblrole" Relationship="Self.FK_UserDetails_tblrole" FromRole="UserDetails" ToRole="tblrole" />
+        </EntityType>
+        <EntityType Name="WebGallery">
+          <Key>
+            <PropertyRef Name="gid" />
+          </Key>
+          <Property Name="gid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gimage" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="gimagedecription" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <Property Name="GDate" Type="DateTime" Precision="3" />
+          <Property Name="fldextra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WebSiteNotice">
+          <Key>
+            <PropertyRef Name="nid" />
+          </Key>
+          <Property Name="nid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoticeTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoticeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoticeDate" Type="DateTime" Precision="3" />
+          <Property Name="fldstatus" Type="Boolean" />
+          <Property Name="fldextra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fldextra3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Addextrafeature_UserDetails">
+          <End Role="UserDetails" Type="Self.UserDetail" Multiplicity="0..1" />
+          <End Role="Addextrafeature" Type="Self.Addextrafeature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Addextrafeature">
+              <PropertyRef Name="rfid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Admintable_tblrole">
+          <End Role="tblrole" Type="Self.tblrole" Multiplicity="0..1" />
+          <End Role="Admintable" Type="Self.Admintable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblrole">
+              <PropertyRef Name="fldroleid" />
+            </Principal>
+            <Dependent Role="Admintable">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blog_tblcategory">
+          <End Role="tblcategory" Type="Self.tblcategory" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcategory">
+              <PropertyRef Name="fldcatid" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jobSubcategory_JobCategory">
+          <End Role="tblcategory" Type="Self.tblcategory" Multiplicity="0..1" />
+          <End Role="jobSubcategory" Type="Self.jobSubcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcategory">
+              <PropertyRef Name="fldcatid" />
+            </Principal>
+            <Dependent Role="jobSubcategory">
+              <PropertyRef Name="JobCatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbljoblist_tblcategory">
+          <End Role="tblcategory" Type="Self.tblcategory" Multiplicity="0..1" />
+          <End Role="tbljoblist" Type="Self.tbljoblist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcategory">
+              <PropertyRef Name="fldcatid" />
+            </Principal>
+            <Dependent Role="tbljoblist">
+              <PropertyRef Name="fldjobcategoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblcity_tblstate">
+          <End Role="tblstate" Type="Self.tblstate" Multiplicity="0..1" />
+          <End Role="tblcity" Type="Self.tblcity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblstate">
+              <PropertyRef Name="fldstateid" />
+            </Principal>
+            <Dependent Role="tblcity">
+              <PropertyRef Name="fldstateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbljoblist_tblcity">
+          <End Role="tblcity" Type="Self.tblcity" Multiplicity="0..1" />
+          <End Role="tbljoblist" Type="Self.tbljoblist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblcity">
+              <PropertyRef Name="fldcityid" />
+            </Principal>
+            <Dependent Role="tbljoblist">
+              <PropertyRef Name="fldcityid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblenquiry_tbljoblist">
+          <End Role="tbljoblist" Type="Self.tbljoblist" Multiplicity="0..1" />
+          <End Role="tblenquiry" Type="Self.tblenquiry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbljoblist">
+              <PropertyRef Name="fldjoblistid" />
+            </Principal>
+            <Dependent Role="tblenquiry">
+              <PropertyRef Name="fldjoblistid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbljobimages_tbljoblist">
+          <End Role="tbljoblist" Type="Self.tbljoblist" Multiplicity="0..1" />
+          <End Role="tbljobimages" Type="Self.tbljobimage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbljoblist">
+              <PropertyRef Name="fldjoblistid" />
+            </Principal>
+            <Dependent Role="tbljobimages">
+              <PropertyRef Name="joblistid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbljoblist_tblstate">
+          <End Role="tblstate" Type="Self.tblstate" Multiplicity="0..1" />
+          <End Role="tbljoblist" Type="Self.tbljoblist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblstate">
+              <PropertyRef Name="fldstateid" />
+            </Principal>
+            <Dependent Role="tbljoblist">
+              <PropertyRef Name="fldstateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblnotification_UserDetails">
+          <End Role="UserDetails" Type="Self.UserDetail" Multiplicity="0..1" />
+          <End Role="tblnotification" Type="Self.tblnotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblnotification">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPayment_UserDetails">
+          <End Role="UserDetails" Type="Self.UserDetail" Multiplicity="0..1" />
+          <End Role="tblPayment" Type="Self.tblPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblPayment">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblregistration_tblrole">
+          <End Role="tblrole" Type="Self.tblrole" Multiplicity="0..1" />
+          <End Role="tblregistration" Type="Self.tblregistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblrole">
+              <PropertyRef Name="fldroleid" />
+            </Principal>
+            <Dependent Role="tblregistration">
+              <PropertyRef Name="fldroleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDetails_tblrole">
+          <End Role="tblrole" Type="Self.tblrole" Multiplicity="0..1" />
+          <End Role="UserDetails" Type="Self.UserDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblrole">
+              <PropertyRef Name="fldroleid" />
+            </Principal>
+            <Dependent Role="UserDetails">
+              <PropertyRef Name="roletype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblstate_tblstate">
+          <End Role="tblstate" Type="Self.tblstate" Multiplicity="1" />
+          <End Role="tblstate1" Type="Self.tblstate" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tblstate">
+              <PropertyRef Name="fldstateid" />
+            </Principal>
+            <Dependent Role="tblstate1">
+              <PropertyRef Name="fldstateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JobPortalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AboutUsPages" EntityType="Self.AboutUsPage" />
+          <EntitySet Name="Addextrafeatures" EntityType="Self.Addextrafeature" />
+          <EntitySet Name="Admintables" EntityType="Self.Admintable" />
+          <EntitySet Name="ApplicationEnquiries" EntityType="Self.ApplicationEnquiry" />
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="BorrowEnquiries" EntityType="Self.BorrowEnquiry" />
+          <EntitySet Name="CustomerStatements" EntityType="Self.CustomerStatement" />
+          <EntitySet Name="HomeEnquiries" EntityType="Self.HomeEnquiry" />
+          <EntitySet Name="HomeSliders" EntityType="Self.HomeSlider" />
+          <EntitySet Name="jobSubcategories" EntityType="Self.jobSubcategory" />
+          <EntitySet Name="SeoSettings" EntityType="Self.SeoSetting" />
+          <EntitySet Name="SiteSettings" EntityType="Self.SiteSetting" />
+          <EntitySet Name="StatusKeyPairs" EntityType="Self.StatusKeyPair" />
+          <EntitySet Name="tbl_customercomplaint" EntityType="Self.tbl_customercomplaint" />
+          <EntitySet Name="tblcategories" EntityType="Self.tblcategory" />
+          <EntitySet Name="tblcities" EntityType="Self.tblcity" />
+          <EntitySet Name="tblenquiries" EntityType="Self.tblenquiry" />
+          <EntitySet Name="tbljobimages" EntityType="Self.tbljobimage" />
+          <EntitySet Name="tbljoblists" EntityType="Self.tbljoblist" />
+          <EntitySet Name="tblLiveEnquiries" EntityType="Self.tblLiveEnquiry" />
+          <EntitySet Name="tblnotifications" EntityType="Self.tblnotification" />
+          <EntitySet Name="tblPayments" EntityType="Self.tblPayment" />
+          <EntitySet Name="tblproducts" EntityType="Self.tblproduct" />
+          <EntitySet Name="tblregistrations" EntityType="Self.tblregistration" />
+          <EntitySet Name="tblroles" EntityType="Self.tblrole" />
+          <EntitySet Name="tblstates" EntityType="Self.tblstate" />
+          <EntitySet Name="UserDetails" EntityType="Self.UserDetail" />
+          <EntitySet Name="WebGalleries" EntityType="Self.WebGallery" />
+          <EntitySet Name="WebSiteNotices" EntityType="Self.WebSiteNotice" />
+          <AssociationSet Name="FK_Addextrafeature_UserDetails" Association="Self.FK_Addextrafeature_UserDetails">
+            <End Role="UserDetails" EntitySet="UserDetails" />
+            <End Role="Addextrafeature" EntitySet="Addextrafeatures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Admintable_tblrole" Association="Self.FK_Admintable_tblrole">
+            <End Role="tblrole" EntitySet="tblroles" />
+            <End Role="Admintable" EntitySet="Admintables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blog_tblcategory" Association="Self.FK_Blog_tblcategory">
+            <End Role="tblcategory" EntitySet="tblcategories" />
+            <End Role="Blog" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jobSubcategory_JobCategory" Association="Self.FK_jobSubcategory_JobCategory">
+            <End Role="tblcategory" EntitySet="tblcategories" />
+            <End Role="jobSubcategory" EntitySet="jobSubcategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbljoblist_tblcategory" Association="Self.FK_tbljoblist_tblcategory">
+            <End Role="tblcategory" EntitySet="tblcategories" />
+            <End Role="tbljoblist" EntitySet="tbljoblists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblcity_tblstate" Association="Self.FK_tblcity_tblstate">
+            <End Role="tblstate" EntitySet="tblstates" />
+            <End Role="tblcity" EntitySet="tblcities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbljoblist_tblcity" Association="Self.FK_tbljoblist_tblcity">
+            <End Role="tblcity" EntitySet="tblcities" />
+            <End Role="tbljoblist" EntitySet="tbljoblists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblenquiry_tbljoblist" Association="Self.FK_tblenquiry_tbljoblist">
+            <End Role="tbljoblist" EntitySet="tbljoblists" />
+            <End Role="tblenquiry" EntitySet="tblenquiries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbljobimages_tbljoblist" Association="Self.FK_tbljobimages_tbljoblist">
+            <End Role="tbljoblist" EntitySet="tbljoblists" />
+            <End Role="tbljobimages" EntitySet="tbljobimages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbljoblist_tblstate" Association="Self.FK_tbljoblist_tblstate">
+            <End Role="tblstate" EntitySet="tblstates" />
+            <End Role="tbljoblist" EntitySet="tbljoblists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblnotification_UserDetails" Association="Self.FK_tblnotification_UserDetails">
+            <End Role="UserDetails" EntitySet="UserDetails" />
+            <End Role="tblnotification" EntitySet="tblnotifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPayment_UserDetails" Association="Self.FK_tblPayment_UserDetails">
+            <End Role="UserDetails" EntitySet="UserDetails" />
+            <End Role="tblPayment" EntitySet="tblPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblregistration_tblrole" Association="Self.FK_tblregistration_tblrole">
+            <End Role="tblrole" EntitySet="tblroles" />
+            <End Role="tblregistration" EntitySet="tblregistrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDetails_tblrole" Association="Self.FK_UserDetails_tblrole">
+            <End Role="tblrole" EntitySet="tblroles" />
+            <End Role="UserDetails" EntitySet="UserDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblstate_tblstate" Association="Self.FK_tblstate_tblstate">
+            <End Role="tblstate" EntitySet="tblstates" />
+            <End Role="tblstate1" EntitySet="tblstates" />
+          </AssociationSet>
+          <FunctionImport Name="SP_Categorywisejobfetch" ReturnType="Collection(JobPortalModel.SP_Categorywisejobfetch_Result)">
+            <Parameter Name="fldcatid" Mode="In" Type="Int32" />
+            <Parameter Name="JobSubCategoryId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Categorywisejobfetch_" ReturnType="Collection(JobPortalModel.SP_Categorywisejobfetch__Result)">
+            <Parameter Name="fldcatid" Mode="In" Type="Int32" />
+            <Parameter Name="JobSubCategoryId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_Categorywisejobfetch_Result">
+          <Property Type="Int32" Name="fldcatid" Nullable="false" />
+          <Property Type="String" Name="fldcategoryname" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="fldcategorytitle" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="fldcategorykeyword" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="flddescription" Nullable="true" MaxLength="2000" />
+          <Property Type="Boolean" Name="IsShow" Nullable="true" />
+          <Property Type="String" Name="fldextra" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="fldextra1" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="fldextra2" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="fldextra3" Nullable="true" MaxLength="200" />
+          <Property Type="Boolean" Name="fldstatus" Nullable="true" />
+          <Property Type="Int32" Name="TotJob" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_Categorywisejobfetch__Result">
+          <Property Type="Int32" Name="fldjoblistid" Nullable="false" />
+          <Property Type="Int32" Name="fldcatid" Nullable="false" />
+          <Property Type="Int32" Name="JobSubCategoryId" Nullable="false" />
+          <Property Type="String" Name="fldcategoryname" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="IsShow" Nullable="true" />
+          <Property Type="Boolean" Name="fldstatus" Nullable="true" />
+          <Property Type="Int32" Name="TotJob" Nullable="true" />
+          <Property Type="String" Name="fldstatename" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="fldcityname" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="JobSubcategoryname" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="fldjobname" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="fldjobdescription" Nullable="true" MaxLength="5000" />
+          <Property Type="String" Name="fldjobtitle" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="fldextra" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="fldextra1" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="fldextra2" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="fldextra3" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="fldcategorytitle" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="flddescription" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="fldexperience" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="fldage" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="fldeducation" Nullable="true" MaxLength="500" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JobPortalModelStoreContainer" CdmEntityContainer="JobPortalEntities">
+          <EntitySetMapping Name="AboutUsPages">
+            <EntityTypeMapping TypeName="JobPortalModel.AboutUsPage">
+              <MappingFragment StoreEntitySet="AboutUsPage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AboutUsmessage" ColumnName="AboutUsmessage" />
+                <ScalarProperty Name="AboutImage" ColumnName="AboutImage" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Addextrafeatures">
+            <EntityTypeMapping TypeName="JobPortalModel.Addextrafeature">
+              <MappingFragment StoreEntitySet="Addextrafeature">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="rfid" ColumnName="rfid" />
+                <ScalarProperty Name="columnname" ColumnName="columnname" />
+                <ScalarProperty Name="columnvalue" ColumnName="columnvalue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admintables">
+            <EntityTypeMapping TypeName="JobPortalModel.Admintable">
+              <MappingFragment StoreEntitySet="Admintable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="adminname" ColumnName="adminname" />
+                <ScalarProperty Name="adminpassword" ColumnName="adminpassword" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationEnquiries">
+            <EntityTypeMapping TypeName="JobPortalModel.ApplicationEnquiry">
+              <MappingFragment StoreEntitySet="ApplicationEnquiry">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+                <ScalarProperty Name="Customer_phone" ColumnName="Customer_phone" />
+                <ScalarProperty Name="customer_monthly_Income" ColumnName="customer_monthly_Income" />
+                <ScalarProperty Name="invest_amount" ColumnName="invest_amount" />
+                <ScalarProperty Name="CurentCity" ColumnName="CurentCity" />
+                <ScalarProperty Name="stateresidance" ColumnName="stateresidance" />
+                <ScalarProperty Name="ApplyFor" ColumnName="ApplyFor" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="JobPortalModel.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="blogtitle" ColumnName="blogtitle" />
+                <ScalarProperty Name="blogDesc" ColumnName="blogDesc" />
+                <ScalarProperty Name="blogimage" ColumnName="blogimage" />
+                <ScalarProperty Name="blogentrydate" ColumnName="blogentrydate" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+                <ScalarProperty Name="fldextra4" ColumnName="fldextra4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BorrowEnquiries">
+            <EntityTypeMapping TypeName="JobPortalModel.BorrowEnquiry">
+              <MappingFragment StoreEntitySet="BorrowEnquiry">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="EnquiryName" ColumnName="EnquiryName" />
+                <ScalarProperty Name="EnquiryEmail" ColumnName="EnquiryEmail" />
+                <ScalarProperty Name="EnquiryPhone" ColumnName="EnquiryPhone" />
+                <ScalarProperty Name="EnquiryMessage" ColumnName="EnquiryMessage" />
+                <ScalarProperty Name="EnquiryLoanAmount" ColumnName="EnquiryLoanAmount" />
+                <ScalarProperty Name="EnquiryYear" ColumnName="EnquiryYear" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+                <ScalarProperty Name="EnquiryDate" ColumnName="EnquiryDate" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerStatements">
+            <EntityTypeMapping TypeName="JobPortalModel.CustomerStatement">
+              <MappingFragment StoreEntitySet="CustomerStatement">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Cus_name" ColumnName="Cus_name" />
+                <ScalarProperty Name="Cus_Image" ColumnName="Cus_Image" />
+                <ScalarProperty Name="Cus_statement" ColumnName="Cus_statement" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="flddoe" ColumnName="flddoe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeEnquiries">
+            <EntityTypeMapping TypeName="JobPortalModel.HomeEnquiry">
+              <MappingFragment StoreEntitySet="HomeEnquiry">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ApplicantName" ColumnName="ApplicantName" />
+                <ScalarProperty Name="ApplicantMobile" ColumnName="ApplicantMobile" />
+                <ScalarProperty Name="ApplicantEmail" ColumnName="ApplicantEmail" />
+                <ScalarProperty Name="ApplicantAddress" ColumnName="ApplicantAddress" />
+                <ScalarProperty Name="Cityid" ColumnName="Cityid" />
+                <ScalarProperty Name="Stateid" ColumnName="Stateid" />
+                <ScalarProperty Name="ApplicantResume" ColumnName="ApplicantResume" />
+                <ScalarProperty Name="Applydate" ColumnName="Applydate" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeSliders">
+            <EntityTypeMapping TypeName="JobPortalModel.HomeSlider">
+              <MappingFragment StoreEntitySet="HomeSlider">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="homePhoto" ColumnName="homePhoto" />
+                <ScalarProperty Name="homestatement" ColumnName="homestatement" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+                <ScalarProperty Name="flddoe" ColumnName="flddoe" />
+                <ScalarProperty Name="slidesc" ColumnName="slidesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jobSubcategories">
+            <EntityTypeMapping TypeName="JobPortalModel.jobSubcategory">
+              <MappingFragment StoreEntitySet="jobSubcategory">
+                <ScalarProperty Name="JobSubCategoryId" ColumnName="JobSubCategoryId" />
+                <ScalarProperty Name="JobCatId" ColumnName="JobCatId" />
+                <ScalarProperty Name="JobSubcategoryname" ColumnName="JobSubcategoryname" />
+                <ScalarProperty Name="desscription" ColumnName="desscription" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="Flstatus" ColumnName="Flstatus" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+                <ScalarProperty Name="fldextra4" ColumnName="fldextra4" />
+                <ScalarProperty Name="fldextra5" ColumnName="fldextra5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeoSettings">
+            <EntityTypeMapping TypeName="JobPortalModel.SeoSetting">
+              <MappingFragment StoreEntitySet="SeoSetting">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Pagetitle" ColumnName="Pagetitle" />
+                <ScalarProperty Name="pagedesciption" ColumnName="pagedesciption" />
+                <ScalarProperty Name="pagemeta" ColumnName="pagemeta" />
+                <ScalarProperty Name="keywords" ColumnName="keywords" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteSettings">
+            <EntityTypeMapping TypeName="JobPortalModel.SiteSetting">
+              <MappingFragment StoreEntitySet="SiteSetting">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sitephoneno" ColumnName="sitephoneno" />
+                <ScalarProperty Name="siteemailid" ColumnName="siteemailid" />
+                <ScalarProperty Name="sitecontactno2" ColumnName="sitecontactno2" />
+                <ScalarProperty Name="siteAddress" ColumnName="siteAddress" />
+                <ScalarProperty Name="sitelogo" ColumnName="sitelogo" />
+                <ScalarProperty Name="fblink" ColumnName="fblink" />
+                <ScalarProperty Name="twiterlink" ColumnName="twiterlink" />
+                <ScalarProperty Name="gpluslink" ColumnName="gpluslink" />
+                <ScalarProperty Name="shortaddress" ColumnName="shortaddress" />
+                <ScalarProperty Name="sitename" ColumnName="sitename" />
+                <ScalarProperty Name="shortdescription" ColumnName="shortdescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusKeyPairs">
+            <EntityTypeMapping TypeName="JobPortalModel.StatusKeyPair">
+              <MappingFragment StoreEntitySet="StatusKeyPair">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="statusKey" ColumnName="statusKey" />
+                <ScalarProperty Name="statusDescription" ColumnName="statusDescription" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_customercomplaint">
+            <EntityTypeMapping TypeName="JobPortalModel.tbl_customercomplaint">
+              <MappingFragment StoreEntitySet="tbl_customercomplaint">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="comp_title" ColumnName="comp_title" />
+                <ScalarProperty Name="comp_desc" ColumnName="comp_desc" />
+                <ScalarProperty Name="comp_date" ColumnName="comp_date" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblcategories">
+            <EntityTypeMapping TypeName="JobPortalModel.tblcategory">
+              <MappingFragment StoreEntitySet="tblcategory">
+                <ScalarProperty Name="fldcatid" ColumnName="fldcatid" />
+                <ScalarProperty Name="fldcategoryname" ColumnName="fldcategoryname" />
+                <ScalarProperty Name="fldcategorytitle" ColumnName="fldcategorytitle" />
+                <ScalarProperty Name="fldcategorykeyword" ColumnName="fldcategorykeyword" />
+                <ScalarProperty Name="flddescription" ColumnName="flddescription" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblcities">
+            <EntityTypeMapping TypeName="JobPortalModel.tblcity">
+              <MappingFragment StoreEntitySet="tblcity">
+                <ScalarProperty Name="fldcityid" ColumnName="fldcityid" />
+                <ScalarProperty Name="fldstateid" ColumnName="fldstateid" />
+                <ScalarProperty Name="fldcityname" ColumnName="fldcityname" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblenquiries">
+            <EntityTypeMapping TypeName="JobPortalModel.tblenquiry">
+              <MappingFragment StoreEntitySet="tblenquiry">
+                <ScalarProperty Name="fldenquiryid" ColumnName="fldenquiryid" />
+                <ScalarProperty Name="fldjoblistid" ColumnName="fldjoblistid" />
+                <ScalarProperty Name="fldname" ColumnName="fldname" />
+                <ScalarProperty Name="fldemail" ColumnName="fldemail" />
+                <ScalarProperty Name="fldfulladdress" ColumnName="fldfulladdress" />
+                <ScalarProperty Name="fldmobno" ColumnName="fldmobno" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbljobimages">
+            <EntityTypeMapping TypeName="JobPortalModel.tbljobimage">
+              <MappingFragment StoreEntitySet="tbljobimages">
+                <ScalarProperty Name="fldjobimgid" ColumnName="fldjobimgid" />
+                <ScalarProperty Name="joblistid" ColumnName="joblistid" />
+                <ScalarProperty Name="fldfilename" ColumnName="fldfilename" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbljoblists">
+            <EntityTypeMapping TypeName="JobPortalModel.tbljoblist">
+              <MappingFragment StoreEntitySet="tbljoblist">
+                <ScalarProperty Name="fldjoblistid" ColumnName="fldjoblistid" />
+                <ScalarProperty Name="fldjobcategoryid" ColumnName="fldjobcategoryid" />
+                <ScalarProperty Name="fldsubcatid" ColumnName="fldsubcatid" />
+                <ScalarProperty Name="fldstateid" ColumnName="fldstateid" />
+                <ScalarProperty Name="fldcityid" ColumnName="fldcityid" />
+                <ScalarProperty Name="fldjobtitle" ColumnName="fldjobtitle" />
+                <ScalarProperty Name="fldjobname" ColumnName="fldjobname" />
+                <ScalarProperty Name="fldjobdescription" ColumnName="fldjobdescription" />
+                <ScalarProperty Name="fldexperience" ColumnName="fldexperience" />
+                <ScalarProperty Name="fldage" ColumnName="fldage" />
+                <ScalarProperty Name="fldeducation" ColumnName="fldeducation" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLiveEnquiries">
+            <EntityTypeMapping TypeName="JobPortalModel.tblLiveEnquiry">
+              <MappingFragment StoreEntitySet="tblLiveEnquiry">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+                <ScalarProperty Name="Customer_phone" ColumnName="Customer_phone" />
+                <ScalarProperty Name="customer_monthly_Income" ColumnName="customer_monthly_Income" />
+                <ScalarProperty Name="invest_amount" ColumnName="invest_amount" />
+                <ScalarProperty Name="CurentCity" ColumnName="CurentCity" />
+                <ScalarProperty Name="stateresidance" ColumnName="stateresidance" />
+                <ScalarProperty Name="ApplyFor" ColumnName="ApplyFor" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblnotifications">
+            <EntityTypeMapping TypeName="JobPortalModel.tblnotification">
+              <MappingFragment StoreEntitySet="tblnotification">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="NoticeTitle" ColumnName="NoticeTitle" />
+                <ScalarProperty Name="NoticeDescription" ColumnName="NoticeDescription" />
+                <ScalarProperty Name="NoticeDate" ColumnName="NoticeDate" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+                <ScalarProperty Name="attachment" ColumnName="attachment" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPayments">
+            <EntityTypeMapping TypeName="JobPortalModel.tblPayment">
+              <MappingFragment StoreEntitySet="tblPayment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="InvTitle" ColumnName="InvTitle" />
+                <ScalarProperty Name="InvDesc" ColumnName="InvDesc" />
+                <ScalarProperty Name="PublishedDate" ColumnName="PublishedDate" />
+                <ScalarProperty Name="InvDocument" ColumnName="InvDocument" />
+                <ScalarProperty Name="invStatus" ColumnName="invStatus" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblproducts">
+            <EntityTypeMapping TypeName="JobPortalModel.tblproduct">
+              <MappingFragment StoreEntitySet="tblproduct">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fldprodtitle" ColumnName="fldprodtitle" />
+                <ScalarProperty Name="fldprodsubtitle" ColumnName="fldprodsubtitle" />
+                <ScalarProperty Name="flddescription" ColumnName="flddescription" />
+                <ScalarProperty Name="entrydate" ColumnName="entrydate" />
+                <ScalarProperty Name="fldseotitle" ColumnName="fldseotitle" />
+                <ScalarProperty Name="fldseokeyword" ColumnName="fldseokeyword" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="productimage" ColumnName="productimage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblregistrations">
+            <EntityTypeMapping TypeName="JobPortalModel.tblregistration">
+              <MappingFragment StoreEntitySet="tblregistration">
+                <ScalarProperty Name="fldregistrationid" ColumnName="fldregistrationid" />
+                <ScalarProperty Name="fldemployeetype" ColumnName="fldemployeetype" />
+                <ScalarProperty Name="fldroleid" ColumnName="fldroleid" />
+                <ScalarProperty Name="fldname" ColumnName="fldname" />
+                <ScalarProperty Name="fldemail" ColumnName="fldemail" />
+                <ScalarProperty Name="fldmobno" ColumnName="fldmobno" />
+                <ScalarProperty Name="fldaddress" ColumnName="fldaddress" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblroles">
+            <EntityTypeMapping TypeName="JobPortalModel.tblrole">
+              <MappingFragment StoreEntitySet="tblrole">
+                <ScalarProperty Name="fldroleid" ColumnName="fldroleid" />
+                <ScalarProperty Name="fldrole" ColumnName="fldrole" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblstates">
+            <EntityTypeMapping TypeName="JobPortalModel.tblstate">
+              <MappingFragment StoreEntitySet="tblstate">
+                <ScalarProperty Name="fldstateid" ColumnName="fldstateid" />
+                <ScalarProperty Name="fldstatename" ColumnName="fldstatename" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDetails">
+            <EntityTypeMapping TypeName="JobPortalModel.UserDetail">
+              <MappingFragment StoreEntitySet="UserDetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fldName" ColumnName="fldName" />
+                <ScalarProperty Name="fldMobile" ColumnName="fldMobile" />
+                <ScalarProperty Name="fldemail" ColumnName="fldemail" />
+                <ScalarProperty Name="fldsreet" ColumnName="fldsreet" />
+                <ScalarProperty Name="fldstate" ColumnName="fldstate" />
+                <ScalarProperty Name="fldcity" ColumnName="fldcity" />
+                <ScalarProperty Name="fldpincode" ColumnName="fldpincode" />
+                <ScalarProperty Name="fldstorename" ColumnName="fldstorename" />
+                <ScalarProperty Name="fldstoreemail" ColumnName="fldstoreemail" />
+                <ScalarProperty Name="fldstorecontactno" ColumnName="fldstorecontactno" />
+                <ScalarProperty Name="fldshopcode" ColumnName="fldshopcode" />
+                <ScalarProperty Name="fldstoreaddress" ColumnName="fldstoreaddress" />
+                <ScalarProperty Name="fldstorestate" ColumnName="fldstorestate" />
+                <ScalarProperty Name="fldstorecity" ColumnName="fldstorecity" />
+                <ScalarProperty Name="fldstorepincode" ColumnName="fldstorepincode" />
+                <ScalarProperty Name="fldpassword" ColumnName="fldpassword" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+                <ScalarProperty Name="fldcreateddate" ColumnName="fldcreateddate" />
+                <ScalarProperty Name="fldimage" ColumnName="fldimage" />
+                <ScalarProperty Name="roletype" ColumnName="roletype" />
+                <ScalarProperty Name="StatusKey" ColumnName="StatusKey" />
+                <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebGalleries">
+            <EntityTypeMapping TypeName="JobPortalModel.WebGallery">
+              <MappingFragment StoreEntitySet="WebGallery">
+                <ScalarProperty Name="gid" ColumnName="gid" />
+                <ScalarProperty Name="Gimage" ColumnName="Gimage" />
+                <ScalarProperty Name="gimagedecription" ColumnName="gimagedecription" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+                <ScalarProperty Name="GDate" ColumnName="GDate" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebSiteNotices">
+            <EntityTypeMapping TypeName="JobPortalModel.WebSiteNotice">
+              <MappingFragment StoreEntitySet="WebSiteNotice">
+                <ScalarProperty Name="nid" ColumnName="nid" />
+                <ScalarProperty Name="NoticeTitle" ColumnName="NoticeTitle" />
+                <ScalarProperty Name="NoticeDescription" ColumnName="NoticeDescription" />
+                <ScalarProperty Name="NoticeDate" ColumnName="NoticeDate" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_Categorywisejobfetch" FunctionName="JobPortalModel.Store.SP_Categorywisejobfetch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JobPortalModel.SP_Categorywisejobfetch_Result">
+                <ScalarProperty Name="fldcatid" ColumnName="fldcatid" />
+                <ScalarProperty Name="fldcategoryname" ColumnName="fldcategoryname" />
+                <ScalarProperty Name="fldcategorytitle" ColumnName="fldcategorytitle" />
+                <ScalarProperty Name="fldcategorykeyword" ColumnName="fldcategorykeyword" />
+                <ScalarProperty Name="flddescription" ColumnName="flddescription" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+                <ScalarProperty Name="TotJob" ColumnName="TotJob" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Categorywisejobfetch_" FunctionName="JobPortalModel.Store.SP_Categorywisejobfetch_">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JobPortalModel.SP_Categorywisejobfetch__Result">
+                <ScalarProperty Name="fldjoblistid" ColumnName="fldjoblistid" />
+                <ScalarProperty Name="fldcatid" ColumnName="fldcatid" />
+                <ScalarProperty Name="JobSubCategoryId" ColumnName="JobSubCategoryId" />
+                <ScalarProperty Name="fldcategoryname" ColumnName="fldcategoryname" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="fldstatus" ColumnName="fldstatus" />
+                <ScalarProperty Name="TotJob" ColumnName="TotJob" />
+                <ScalarProperty Name="fldstatename" ColumnName="fldstatename" />
+                <ScalarProperty Name="fldcityname" ColumnName="fldcityname" />
+                <ScalarProperty Name="JobSubcategoryname" ColumnName="JobSubcategoryname" />
+                <ScalarProperty Name="fldjobname" ColumnName="fldjobname" />
+                <ScalarProperty Name="fldjobdescription" ColumnName="fldjobdescription" />
+                <ScalarProperty Name="fldjobtitle" ColumnName="fldjobtitle" />
+                <ScalarProperty Name="fldextra" ColumnName="fldextra" />
+                <ScalarProperty Name="fldextra1" ColumnName="fldextra1" />
+                <ScalarProperty Name="fldextra2" ColumnName="fldextra2" />
+                <ScalarProperty Name="fldextra3" ColumnName="fldextra3" />
+                <ScalarProperty Name="fldcategorytitle" ColumnName="fldcategorytitle" />
+                <ScalarProperty Name="flddescription" ColumnName="flddescription" />
+                <ScalarProperty Name="fldexperience" ColumnName="fldexperience" />
+                <ScalarProperty Name="fldage" ColumnName="fldage" />
+                <ScalarProperty Name="fldeducation" ColumnName="fldeducation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "ApplyNow";
+    Layout = "~/Views/Shared/_Layoutweb.cshtml";
+}
+@using SiteAllAdmin.Models
+<div class="pa-breadcrumb">
+    <div class="container-fluid">
+        <div class="pa-breadcrumb-box">
+            <h1>Apply Now</h1>
+            <ul>
+                <li><a href="/Home">Home</a></li>
+                <li>AApply Now</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="pa-blog-page spacer-top">
+    <div class="container">
+        <div class="row">
+            
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="pa-blog-comnt">
+                            <h3>Apply Now</h3>
+                            <div class="pa-cmnt-form">
+                                @Html.Partial("_enquiry", new UserEnquiryModel
+                   {
+                       fldextra = "ApplyNow"
+                   })
+                                </div>
+                            </div>
+
+                        </div>
+                    <div class="col-lg-6" >
+                        <img src="~/www/assets/images/blog-single.jpg" class="img-responsive img-thumbnail" style="margin-top: 10%;" />
+                    </div>
+    </div>
+</div>
+        </div></div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
